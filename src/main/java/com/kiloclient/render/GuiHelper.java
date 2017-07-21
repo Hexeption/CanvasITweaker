@@ -222,10 +222,10 @@ public class GuiHelper implements IMinecraft {
 	public static void drawStringFromTTF(TrueTypeFont font, float x, float y, String text, int color, Align hAlign, Align vAlign, boolean shadow) {
 		GlStateManager.color(0, 0, 0);
 		GL11.glColor4f(0, 0, 0, 0);
-		
-		int offsetX = 0;
+
 		int offsetY = 0;
-		
+		int offsetX = 0;
+
 		switch (hAlign) {
 		case CENTER:
 			offsetX = -font.getWidth(text)/2;

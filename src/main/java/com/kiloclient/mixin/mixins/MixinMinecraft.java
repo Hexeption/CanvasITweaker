@@ -45,7 +45,7 @@ public class MixinMinecraft implements IMixinMinecraft {
         KiLO.getKiLO().getEventManager().call(EventTick.get());
     }
 
-    @Inject(method = "displayGuiScreen", at = @At(value = "HEAD"))
+    @Inject(method = "displayGuiScreen", at = @At(value = "RETURN"))
     private void changeUI(CallbackInfo callbackInfo) {
 
         if (KiLO.getKiLO().getUIHandler().getCurrentUI() != null) {
