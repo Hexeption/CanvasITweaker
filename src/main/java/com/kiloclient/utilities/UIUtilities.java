@@ -1,6 +1,7 @@
 package com.kiloclient.utilities;
 
 import com.kiloclient.KiLO;
+import com.kiloclient.mixin.imp.IMixinGuiConnecting;
 import com.kiloclient.ui.*;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.multiplayer.GuiConnecting;
@@ -37,7 +38,7 @@ public class UIUtilities {
 		} else if (mcGUI instanceof GuiCreateWorld) {
 			return new UICreateWorld(KiLO.getKiLO().getUIHandler().getCurrentUI());
 		} else if (mcGUI instanceof GuiConnecting) {
-			return new UIConnecting(KiLO.getKiLO().getUIHandler().getCurrentUI(), ((GuiConnecting)mcGUI).ip+":"+((GuiConnecting)mcGUI).port);
+			return new UIConnecting(KiLO.getKiLO().getUIHandler().getCurrentUI(), ((IMixinGuiConnecting)mcGUI).getIP()+":"+((IMixinGuiConnecting)mcGUI).getPort());
 		}
 		
 		return null;

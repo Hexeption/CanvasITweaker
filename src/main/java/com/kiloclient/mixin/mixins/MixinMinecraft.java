@@ -45,7 +45,7 @@ public class MixinMinecraft implements IMixinMinecraft {
         KiLO.getKiLO().getEventManager().call(EventTick.get());
     }
 
-    @Inject(method = "displayGuiScreen", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;currentScreen:Lnet/minecraft/client/gui/GuiScreen;"))
+    @Inject(method = "displayGuiScreen", at = @At(value = "HEAD"))
     private void changeUI(CallbackInfo callbackInfo) {
 
         if (KiLO.getKiLO().getUIHandler().getCurrentUI() != null) {

@@ -1,4 +1,6 @@
 package com.kiloclient.mixin.imp;
 
-public class IMixinGuiChat {
+public interface IMixinGuiChat {
+
+    String getDefaultInputFieldText();
 }

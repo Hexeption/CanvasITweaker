@@ -38,7 +38,7 @@ archivesBaseName = modBaseName
 minecraft {
     version = '1.12'
     runDir = 'run'
-    tweakClass = 'uk.co.hexeption.launch.Launcher'
+    tweakClass = 'com.kiloclient.launch.Launcher'
     mappings = 'snapshot_20170617'
     useDepAts = true
 

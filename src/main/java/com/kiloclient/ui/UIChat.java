@@ -2,8 +2,10 @@ package com.kiloclient.ui;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.manager.ChatManager;
+import com.kiloclient.mixin.imp.IMixinGuiChat;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.Interactable;
 import com.kiloclient.ui.interactable.TextBox;
@@ -11,11 +13,9 @@ import com.kiloclient.ui.interactable.slotlist.ChatList;
 import com.kiloclient.ui.interactable.slotlist.part.ChatLine;
 import com.kiloclient.ui.interactable.slotlist.slot.ChatSlot;
 import com.kiloclient.ui.interactable.slotlist.slot.Slot;
-import com.kiloclient.render.utilities.Align;
 import com.kiloclient.utilities.ChatUtilities;
 import com.kiloclient.utilities.Utilities;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.entity.player.EntityPlayer.EnumChatVisibility;
@@ -67,7 +67,7 @@ public class UIChat extends UI {
 		});
 		interactables.get(0).active = true;
 		
-		((TextBox)interactables.get(0)).text = ((GuiChat)mc.currentScreen).defaultInputFieldText;
+		((TextBox)interactables.get(0)).text = ((IMixinGuiChat)mc.currentScreen).getDefaultInputFieldText();
 		((TextBox)interactables.get(0)).cursorPos = ((TextBox)interactables.get(0)).text.length();
 		((TextBox)interactables.get(0)).startSelect = ((TextBox)interactables.get(0)).cursorPos;
 	}

@@ -1,21 +1,21 @@
 package com.kiloclient;
 
+import com.kiloclient.addons.AddonRenderer;
+import com.kiloclient.api.APIHelper;
 import com.kiloclient.event.EventManager;
 import com.kiloclient.event.base.Listener;
 import com.kiloclient.event.boot.EventShutdown;
 import com.kiloclient.event.boot.EventStartup;
 import com.kiloclient.event.ui.EventTick;
-import com.kiloclient.addons.AddonRenderer;
-import com.kiloclient.api.APIHelper;
 import com.kiloclient.manager.ColorSchemeHandler;
 import com.kiloclient.manager.NotificationManager;
 import com.kiloclient.music.MusicHandler;
 import com.kiloclient.party.PartyManager;
+import com.kiloclient.resource.IOHelper;
+import com.kiloclient.resource.ResourceHelper;
 import com.kiloclient.ui.UIHandler;
 import com.kiloclient.users.PlayerHandler;
 import com.kiloclient.users.UserControl;
-import com.kiloclient.resource.IOHelper;
-import com.kiloclient.resource.ResourceHelper;
 import com.kiloclient.utilities.Auth;
 
 //TODO: DO NOT FORGET TO IMPLEMENT CAPES
@@ -32,7 +32,7 @@ public class KiLO {
 	
 	private UserControl userControl;
 	
-	private UIHandler uiHandler;
+	private UIHandler uiHandler =new UIHandler();
 	
 	private MusicHandler musicHandler;
 	
@@ -57,8 +57,7 @@ public class KiLO {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
-				uiHandler = new UIHandler();
+
 				musicHandler = new MusicHandler();
 				colorSchemeHandler = new ColorSchemeHandler();
 				playerHandler = new PlayerHandler();
@@ -106,6 +105,7 @@ public class KiLO {
 				NotificationManager.update();
 				
 				colorSchemeHandler.setScheme(3);
+
 			}
 		});
 	}

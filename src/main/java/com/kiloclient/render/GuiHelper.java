@@ -1,14 +1,14 @@
 package com.kiloclient.render;
 
-import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.render.utilities.Align;
+import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.utilities.Utilities;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
@@ -95,10 +95,10 @@ public class GuiHelper {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder bufferbuilder = tessellator.getBuffer();
 		bufferbuilder.begin(7, DefaultVertexFormats.POSITION_COLOR);
-		bufferbuilder.pos((double)right, (double)top, (double)Gui.zLevel).color(f1, f2, f3, f).endVertex();
-		bufferbuilder.pos((double)left, (double)top, (double)Gui.zLevel).color(f1, f2, f3, f).endVertex();
-		bufferbuilder.pos((double)left, (double)bottom, (double)Gui.zLevel).color(f5, f6, f7, f4).endVertex();
-		bufferbuilder.pos((double)right, (double)bottom, (double)Gui.zLevel).color(f5, f6, f7, f4).endVertex();
+		bufferbuilder.pos((double)right, (double)top, (double)0).color(f1, f2, f3, f).endVertex();
+		bufferbuilder.pos((double)left, (double)top, (double)0).color(f1, f2, f3, f).endVertex();
+		bufferbuilder.pos((double)left, (double)bottom, (double)0).color(f5, f6, f7, f4).endVertex();
+		bufferbuilder.pos((double)right, (double)bottom, (double)0).color(f5, f6, f7, f4).endVertex();
 		tessellator.draw();
 		GlStateManager.shadeModel(7424);
 		GlStateManager.disableBlend();
@@ -249,7 +249,7 @@ public class GuiHelper {
 			break;
 		}
 
-        mc.getTextureManager().bindTexture(mc.fontRendererObj.locationFontTextureBase);
+        mc.getTextureManager().bindTexture(new ResourceLocation("textures/font/ascii.png"));
         GlStateManager.enableBlend();
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		TextureImpl.bindNone();

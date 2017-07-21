@@ -1,14 +1,14 @@
 package com.kiloclient.ui;
 
 import com.kiloclient.manager.ChatManager;
+import com.kiloclient.mixin.imp.IMixinGuiConnecting;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.Button;
 import com.kiloclient.ui.interactable.Interactable;
-import com.kiloclient.render.utilities.Align;
 import com.kiloclient.utilities.Utilities;
-import net.minecraft.client.multiplayer.GuiConnecting;
 import net.minecraft.util.text.TextComponentString;
 import org.lwjgl.opengl.Display;
 
@@ -34,12 +34,12 @@ public class UIConnecting extends UI {
 	public void handleInteraction(Interactable i) {
 		switch(interactables.indexOf(i)) {
 		case 0:
-			if (((GuiConnecting)mc.currentScreen).networkManager != null) {
-				((GuiConnecting)mc.currentScreen).networkManager.closeChannel(new TextComponentString("Aborted") {
+			if (((IMixinGuiConnecting)mc.currentScreen).getNetworkManager() != null) {
+				((IMixinGuiConnecting)mc.currentScreen).getNetworkManager().closeChannel(new TextComponentString("Aborted") {
 				});
             }
 
-            mc.displayGuiScreen(((GuiConnecting)mc.currentScreen).previousGuiScreen);
+            mc.displayGuiScreen(((IMixinGuiConnecting)mc.currentScreen).getpreviousGuiScreen());
 			break;
 		}
 	}

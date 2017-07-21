@@ -3,7 +3,12 @@
   "package": "com.kiloclient.mixin.mixins",
   "refmap": "mixins.client.remap.json",
   "compatibilityLevel": "JAVA_8",
-  "mixins" : [
-    "MixinMinecraft"
+  "mixins": [
+    "MixinMinecraft",
+    "MixinGuiChat",
+    "MixinGuiConnecting",
+    "MixinGuiMainMenu",
+    "MixinGuiWorldSelection",
+    "MixinEntityRenderer"
   ]
 }

@@ -41,7 +41,7 @@ public class Auth implements IMC {
             return false;
         }
 
-        mc.setSession(session);
+        mixinMC.setSession(session);
         return true;
     }
 
