@@ -1,11 +1,10 @@
-package com.kiloclient.manager;
+package com.kiloclient.friend;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.ui.interactable.slotlist.part.Friend;
 import com.kiloclient.ui.interactable.slotlist.part.Message;
 
 public class MessageManager {

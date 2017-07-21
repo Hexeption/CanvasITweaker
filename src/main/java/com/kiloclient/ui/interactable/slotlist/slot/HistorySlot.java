@@ -1,22 +1,18 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.manager.HistoryManager;
+import com.kiloclient.notification.HistoryManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.UIHistory;
 import com.kiloclient.ui.interactable.slotlist.SlotList;
 import com.kiloclient.ui.popup.UIPopupHistory;
 import com.kiloclient.users.Player;
-import com.kiloclient.render.utilities.Align;
 import com.kiloclient.utilities.Utilities;
 
-import net.minecraft.client.Minecraft;
-
 public class HistorySlot extends Slot {
-
-	private final Minecraft mc = Minecraft.getMinecraft();
 	
 	public Player player;
 	

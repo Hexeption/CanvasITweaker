@@ -2,21 +2,18 @@ package com.kiloclient.ui.interactable.slotlist.slot;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.party.Party;
+import com.kiloclient.friend.party.Party;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.slotlist.SlotList;
-import com.kiloclient.render.utilities.Align;
 import com.kiloclient.utilities.Utilities;
-import net.minecraft.client.Minecraft;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
 public class PartyMessageSlot extends Slot {
-
-	private final Minecraft mc = Minecraft.getMinecraft();
 	
 	public Party.PartyMessage message;
 	

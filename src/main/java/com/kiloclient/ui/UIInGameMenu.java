@@ -6,11 +6,11 @@ import org.lwjgl.opengl.Display;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.ActivityManager;
-import com.kiloclient.manager.AddonManager;
-import com.kiloclient.manager.FriendManager;
-import com.kiloclient.manager.UpdateManager;
-import com.kiloclient.party.Party;
+import com.kiloclient.notification.ActivityManager;
+import com.kiloclient.addons.AddonManager;
+import com.kiloclient.friend.FriendManager;
+import com.kiloclient.notification.UpdateManager;
+import com.kiloclient.friend.party.Party;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.Button;
@@ -484,7 +484,7 @@ public class UIInGameMenu extends UI {
 			
 			if (mc.world != null && mc.world.getEntityByID( - 3) != null) {
 				float size = 200;
-				User user = AddonManager.users.get(mc.world.getEntityByID( - 3).getDisplayName());
+				User user = AddonManager.users.get(mc.world.getEntityByID( - 3).getDisplayName().getUnformattedText());
 	            if (user != null) {
 	            	if (user.sizeEnabled) {
 	            		size /= user.size;

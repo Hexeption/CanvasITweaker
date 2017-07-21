@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.manager.HistoryManager;
+import com.kiloclient.notification.HistoryManager;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.UI;

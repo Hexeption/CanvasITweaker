@@ -1,7 +1,6 @@
-package com.kiloclient.manager;
+package com.kiloclient.users;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.utilities.ColorScheme;
 
 public class ColorSchemeHandler {
 	

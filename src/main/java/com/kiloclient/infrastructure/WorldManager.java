@@ -1,20 +1,18 @@
-package com.kiloclient.manager;
+package com.kiloclient.infrastructure;
+
+import com.kiloclient.utilities.IMinecraft;
+import net.minecraft.client.AnvilConverterException;
+import net.minecraft.world.storage.ISaveFormat;
+import net.minecraft.world.storage.WorldSummary;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import net.minecraft.client.AnvilConverterException;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.storage.ISaveFormat;
-import net.minecraft.world.storage.WorldSummary;
+public class WorldManager implements IMinecraft {
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-public class WorldManager {
-
-	private static final Minecraft mc = Minecraft.getMinecraft();
     private static final Logger logger = LogManager.getLogger();
 	private static List<WorldSummary> worlds = new CopyOnWriteArrayList<WorldSummary>();
 	

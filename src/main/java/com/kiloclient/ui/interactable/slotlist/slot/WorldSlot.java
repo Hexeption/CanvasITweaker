@@ -1,6 +1,6 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
-import com.kiloclient.manager.WorldManager;
+import com.kiloclient.infrastructure.WorldManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
@@ -9,7 +9,6 @@ import com.kiloclient.render.utilities.Align;
 import com.kiloclient.resource.ResourceHelper;
 import com.kiloclient.utilities.Timer;
 import com.kiloclient.utilities.Utilities;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.world.WorldSettings;
@@ -25,7 +24,6 @@ import java.util.List;
 
 public class WorldSlot extends Slot {
 
-	private final Minecraft mc = Minecraft.getMinecraft();
     private final DateFormat dateFormat = new SimpleDateFormat();
 	
 	public int index;

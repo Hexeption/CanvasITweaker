@@ -146,7 +146,7 @@ public class UICreatePassport extends UI {
 					if (clientID.length() > 0) {
 						String[] clientDetails = APIHelper.getClientDetails(clientID);
 						if (clientDetails.length == 12) {
-							KiLO.getKiLO().setUserControl(new UserControl(clientDetails[0], clientDetails[1], clientDetails[2], clientDetails[3], clientDetails[4], clientDetails[5], clientDetails[6], clientDetails[7], clientDetails[8], clientDetails[9], clientDetails[10], Boolean.parseBoolean(clientDetails[11])));
+							KiLO.getKiLO().setUserControl(new UserControl(clientDetails[0], clientDetails[1], clientDetails[2], clientDetails[3], clientDetails[4], clientDetails[5], clientDetails[6], clientDetails[7], clientDetails[8]));
 							return true;
 						} else {
 							KiLO.getKiLO().setUserControl(null);
@@ -157,7 +157,7 @@ public class UICreatePassport extends UI {
 						return true;
 					}
 				} catch (Exception e) {
-					KiLO.getKiLO().setUserControl(new UserControl(clientID, "User", "", "false", "", "verified", "", "30", "1", null, null, false));
+					KiLO.getKiLO().setUserControl(new UserControl(clientID, "User", "", "false", "", "verified", "", "30", "4"));
 					return true;
 				}
 			} else {

@@ -2,7 +2,7 @@ package com.kiloclient.ui;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.WorldManager;
+import com.kiloclient.infrastructure.WorldManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.Align;
@@ -16,12 +16,12 @@ import com.kiloclient.ui.interactable.slotlist.SlotList;
 import com.kiloclient.ui.interactable.slotlist.slot.Slot;
 import com.kiloclient.ui.interactable.slotlist.slot.WorldSlot;
 import com.kiloclient.ui.popup.UIPopupWorldRename;
+import com.kiloclient.utilities.EntityFakePlayer;
 import com.kiloclient.utilities.Timer;
 import com.kiloclient.utilities.Utilities;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.storage.ISaveFormat;
@@ -38,37 +38,37 @@ public class UISingleplayer extends UI {
 
 	private UI popup, popupTo;
 	private boolean popupFade;
-	
+
 	private float formOffset;
 	private boolean invalid, deleting, loadingWorld;
-	
+
 	private String invalidMessage = "";
-	
+
 	private Timer invalidTimer = new Timer();
 
 	private int selectedIndex;
 	private float fX, fY, fW, fH, popupOpacity;
-	
+
 	public SlotList wsl;
-	
+
 	public TextureImage model;
-	
+
 	public UISingleplayer(UI parent) {
 		super(parent);
 	}
-	
+
 	@Override
 	public void init() {
 		title = "Singleplayer";
 
 		model = ResourceHelper.downloadTexture(String.format(APIHelper.PLAYER_MODEL, KiLO.getKiLO().getUserControl().minecraftName));
-		
+
 		formOffset = 0;
 		invalid = false;
 
 		WorldManager.loadWorlds();
 		wsl = new SlotList(6f);
-		
+
 		fX = Display.getWidth() / 1.5f + 32;
 		fY = (Display.getHeight() / 2) + 44;
 		fW = Display.getWidth() / 1.5f - 38 - 64;
@@ -84,7 +84,7 @@ public class UISingleplayer extends UI {
 		interactables.add(new Button(this, "Re - Create", fX + 24, fY + (fH / 2) - 24 - 48, (((fW / 2) - 48) / 2) - 12, 48, FontHandler.ROUNDED_BOLD.get(20), 0xFF303030, null, 0));
 		interactables.add(new Button(this, "Delete", fX + 24 + (((fW / 2) - 48) / 2) + 12, fY + (fH / 2) - 24 - 48, (((fW / 2) - 48) / 2) - 12, 48, FontHandler.ROUNDED_BOLD.get(20), 0xFF303030, null, 0));
 	}
-	
+
 	public void update(int mx, int my) {
 		if (popup == null) {
 			super.update(mx, my);
@@ -117,7 +117,7 @@ public class UISingleplayer extends UI {
 		wsl.y = fY - (fH / 2) + 32 - wsl.oy;
 		wsl.w = fW - 64;
 		wsl.h = fH - 24 - 48 - 12 - 48 - 24 - 64;
-		
+
 		if (wsl.slots.size() != WorldManager.getSize()) {
 			wsl.slots.clear();
 			int i = 0;
@@ -126,9 +126,9 @@ public class UISingleplayer extends UI {
 				i ++ ;
 			}
 		}
-		
+
 		wsl.update(mx, my);
-		
+
 		if (popup != null) {
 			popup.update(mx, my);
 		}
@@ -144,12 +144,12 @@ public class UISingleplayer extends UI {
 			}
 		}
 	}
-	
+
 	@Override
 	public void handleInteraction(Interactable i) {
 		WorldSummary activeWorld = null;
 		int index =  - 1;
-		
+
 		int a = 0;
 		for (Slot s : wsl.slots) {
 			if (s.active) {
@@ -160,22 +160,22 @@ public class UISingleplayer extends UI {
 			a ++ ;
 		}
 		switch(interactables.indexOf(i)) {
-		case 0: 
+		case 0:
             mc.displayGuiScreen(new GuiMainMenu());
 			break;
-		case 1: 
+		case 1:
 			loadWorld(index);
 			break;
-		case 2: 
+		case 2:
             mc.displayGuiScreen(new GuiCreateWorld(mc.currentScreen));
 			break;
-		case 3: 
+		case 3:
 			changePopup(new UIPopupWorldRename(this, activeWorld));
 			break;
-		case 4: 
+		case 4:
 			Utilities.openWeb(APIHelper.MAP_STORE);
 			break;
-		case 5: 
+		case 5:
 			if (index !=  - 1) {
                 GuiCreateWorld var5 = new GuiCreateWorld(mc.currentScreen);
                 ISaveHandler var6 = this.mc.getSaveLoader().getSaveLoader(WorldManager.getWorld(index).getFileName(), false);
@@ -186,12 +186,12 @@ public class UISingleplayer extends UI {
                 ((UICreateWorld)KiLO.getKiLO().getUIHandler().getUITo()).set(var4);
 			}
 			break;
-		case 6: 
+		case 6:
 			removeWorld(activeWorld);
 			break;
 		}
 	}
-	
+
 	public void mouseClick(int mx, int my, int b) {
 		if (popup == null) {
 			super.mouseClick(mx, my, b);
@@ -200,7 +200,7 @@ public class UISingleplayer extends UI {
 			popup.mouseClick(mx, my, b);
 		}
 	}
-	
+
 	public void mouseRelease(int mx, int my, int b) {
 		if (popup == null) {
 			super.mouseRelease(mx, my, b);
@@ -209,7 +209,7 @@ public class UISingleplayer extends UI {
 			popup.mouseRelease(mx, my, b);
 		}
 	}
-	
+
 	public void mouseScroll(int s) {
 		if (popup == null) {
 			super.mouseScroll(s);
@@ -218,12 +218,12 @@ public class UISingleplayer extends UI {
 			popup.mouseScroll(s);
 		}
 	}
-	
+
 	public void keyboardPress(int key) {
 		if (popup == null) {
 			WorldSummary activeWorld = null;
 			int index =  - 1;
-			
+
 			int a = 0;
 			for (Slot s : wsl.slots) {
 				if (s.active) {
@@ -233,12 +233,12 @@ public class UISingleplayer extends UI {
 				}
 				a ++ ;
 			}
-			
+
 			super.keyboardPress(key);
 			switch (key) {
-			case Keyboard.KEY_RETURN: 
+			case Keyboard.KEY_RETURN:
 				break;
-			case Keyboard.KEY_DELETE: 
+			case Keyboard.KEY_DELETE:
 				break;
 			}
 		} else {
@@ -253,12 +253,12 @@ public class UISingleplayer extends UI {
 			popup.keyTyped(key, keyChar);
 		}
 	}
-	
+
 	public void changePopup(UI u) {
 		popupTo = u;
 		popupFade = true;
 	}
-	
+
 	public void removeWorld(WorldSummary s) {
         ISaveFormat var3 = this.mc.getSaveLoader();
         var3.flushCache();
@@ -266,7 +266,7 @@ public class UISingleplayer extends UI {
 
         WorldManager.loadWorlds();
 	}
-	
+
 	public void loadWorld(int index)
     {
         mc.displayGuiScreen((GuiScreen)null);
@@ -294,7 +294,7 @@ public class UISingleplayer extends UI {
             }
         }
     }
-	
+
 	public String getWorldName(int index) {
         String var2 = WorldManager.getWorld(index).getDisplayName();
 
@@ -305,7 +305,7 @@ public class UISingleplayer extends UI {
 
         return var2;
 	}
-	
+
 	public void render(float opacity) {
 		drawDarkerBackground(false, opacity);
 
@@ -327,11 +327,9 @@ public class UISingleplayer extends UI {
 		wsl.render(opacity);
 		GuiHelper.endClip();
 
-		GlStateManager.pushMatrix();
-		//TODO: Player Model
-		GlStateManager.popMatrix();
+        GuiHelper.drawEntityOnScreen((int) (32 + 200), 600, 200, ((fX - (fW)) - KiLO.getKiLO().getUIHandler().mouse[0]) / 4, ((fY) - (KiLO.getKiLO().getUIHandler().mouse[1])) / 2, new EntityFakePlayer("Hexeption"), Utilities.reAlpha(0xFFFFFFFF, 1f * opacity));
 
-		if (model.getTexture() != null) {
+        if (model.getTexture() != null) {
 			float scale = 0.7f;
 			GuiHelper.drawTexturedRectangle(((fX - (fW / 2)) / 2) - (model.getTexture().getImageWidth() / 2 * scale), (Display.getHeight() / 2) - (model.getTexture().getImageHeight() / 2 * scale) + 40, model.getTexture().getImageWidth() * scale, model.getTexture().getImageHeight() * scale, model.getTexture(), 1f * opacity);
 		}

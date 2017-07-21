@@ -2,7 +2,7 @@ package com.kiloclient.ui.interactable.slotlist.slot;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.ServerManager;
+import com.kiloclient.infrastructure.ServerManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
@@ -14,12 +14,9 @@ import com.kiloclient.resource.ResourceHelper;
 import com.kiloclient.utilities.Timer;
 import com.kiloclient.utilities.Utilities;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.GuiConnecting;
 
 public class ServerSlot extends Slot {
-
-	private final Minecraft mc = Minecraft.getMinecraft();
 	
 	public float moveUpFade, moveDownFade;
 	public boolean moveUp, moveDown;

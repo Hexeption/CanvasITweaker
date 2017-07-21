@@ -2,6 +2,7 @@ package com.kiloclient.render;
 
 import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
+import com.kiloclient.utilities.IMinecraft;
 import com.kiloclient.utilities.Utilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.*;
@@ -16,9 +17,7 @@ import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureImpl;
 
-public class GuiHelper {
-
-	private static final Minecraft mc = Minecraft.getMinecraft();
+public class GuiHelper implements IMinecraft {
 	
 	public static void startClip(float x1, float y1, float x2, float y2) {
 		float temp;

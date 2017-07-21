@@ -1,5 +1,27 @@
 package com.kiloclient.api;
 
+import com.kiloclient.KiLO;
+import com.kiloclient.notification.Notification;
+import com.kiloclient.notification.NotificationManager;
+import com.kiloclient.maps.MapHandler;
+import com.kiloclient.message.Message;
+import com.kiloclient.friend.party.Party;
+import com.kiloclient.friend.party.Party.PartyMessage;
+import com.kiloclient.render.utilities.TextureImage;
+import com.kiloclient.resource.IOHelper;
+import com.kiloclient.resource.ResourceHelper;
+import com.kiloclient.ui.interactable.slotlist.part.*;
+import com.kiloclient.users.User;
+import com.kiloclient.utilities.ActivityType;
+import com.kiloclient.utilities.IMinecraft;
+import jaco.mp3.player.MP3Player;
+import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.multiplayer.GuiConnecting;
+import net.minecraft.client.multiplayer.ServerData;
+import org.apache.commons.io.FilenameUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -8,39 +30,11 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FilenameUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import com.kiloclient.KiLO;
-import com.kiloclient.manager.Notification;
-import com.kiloclient.manager.NotificationManager;
-import com.kiloclient.maps.MapHandler;
-import com.kiloclient.message.Message;
-import com.kiloclient.party.Party;
-import com.kiloclient.party.Party.PartyMessage;
-import com.kiloclient.render.utilities.TextureImage;
-import com.kiloclient.ui.interactable.slotlist.part.Activity;
-import com.kiloclient.ui.interactable.slotlist.part.Friend;
-import com.kiloclient.ui.interactable.slotlist.part.Playlist;
-import com.kiloclient.ui.interactable.slotlist.part.Server;
-import com.kiloclient.ui.interactable.slotlist.part.Song;
-import com.kiloclient.users.User;
-import com.kiloclient.utilities.ActivityType;
-import com.kiloclient.resource.IOHelper;
-import com.kiloclient.resource.ResourceHelper;
-
-import jaco.mp3.player.MP3Player;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiMainMenu;
-import net.minecraft.client.multiplayer.GuiConnecting;
-import net.minecraft.client.multiplayer.ServerData;
-
 /**
 * Essentially the user is assigned a random client ID when they create an account and that is used for all API functions
 * IGN = In game name
 */
-public class APIHelper {
+public class APIHelper implements IMinecraft {
 	
 	public static final String API = "http://api.meetKiLO.com/2015-06-20";
 	public static final String API_STATIC = "http://static.kiloclient.com";
@@ -868,7 +862,6 @@ public class APIHelper {
 					}
 					break;
 				case SERVER_LINK:
-					Minecraft mc = Minecraft.getMinecraft();
 					mc.world.sendQuittingDisconnectingPacket();
 		            mc.loadWorld(null);
 		            KiLO.getKiLO().getPlayerHandler().playerMap.clear();

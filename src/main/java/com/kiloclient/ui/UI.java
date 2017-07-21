@@ -1,15 +1,12 @@
 package com.kiloclient.ui;
 
-import org.lwjgl.opengl.Display;
-
 import com.kiloclient.KiLO;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.utilities.IMinecraft;
+import org.lwjgl.opengl.Display;
 
-import net.minecraft.client.Minecraft;
+public abstract class UI extends InteractableParent implements IMinecraft {
 
-public abstract class UI extends InteractableParent {
-
-	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected UI parent;
 	public String title;
 	

@@ -1,4 +1,4 @@
-package com.kiloclient.party;
+package com.kiloclient.friend.party;
 
 import java.util.ArrayList;
 

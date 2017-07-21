@@ -14,7 +14,7 @@ public class UserControl {
 	
 	public String currentVersion, currentVersionURL;
 	
-	public UserControl(String clientID, String kiloName, String minecraftName, String isPremium, String email, String gameStatus, String ircTag, String updateTime, String colorScheme, String currentVersion, String currentVersionURL, boolean flareCheats) {
+	public UserControl(String clientID, String kiloName, String minecraftName, String isPremium, String email, String gameStatus, String ircTag, String updateTime, String colorScheme) {
 		this.clientID = clientID;
 		this.kiloName = kiloName;
 		this.minecraftName = minecraftName;
@@ -33,13 +33,11 @@ public class UserControl {
 		this.currentVersion = currentVersion;
 		this.currentVersionURL = currentVersionURL;
 		
-		this.flareCheats = flareCheats;
-		
 		/*if (!currentVersion.equalsIgnoreCase(KiLO.getKiLO().getVersion())) {
 			KiLO.getKiLO().setOutOfDate(true);
 
-		}
+		}*/
 		
-		UpdateManager.initUpdating(this.updateTime);*/
+		//UpdateManager.initUpdating(this.updateTime);
 	}
 }

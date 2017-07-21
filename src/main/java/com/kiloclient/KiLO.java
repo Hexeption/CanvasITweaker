@@ -1,22 +1,22 @@
 package com.kiloclient;
 
-import com.kiloclient.addons.AddonRenderer;
-import com.kiloclient.api.APIHelper;
 import com.kiloclient.event.EventManager;
 import com.kiloclient.event.base.Listener;
 import com.kiloclient.event.boot.EventShutdown;
 import com.kiloclient.event.boot.EventStartup;
 import com.kiloclient.event.ui.EventTick;
-import com.kiloclient.manager.ColorSchemeHandler;
-import com.kiloclient.manager.NotificationManager;
+import com.kiloclient.addons.AddonRenderer;
+import com.kiloclient.api.APIHelper;
+import com.kiloclient.users.ColorSchemeHandler;
+import com.kiloclient.notification.NotificationManager;
 import com.kiloclient.music.MusicHandler;
-import com.kiloclient.party.PartyManager;
-import com.kiloclient.resource.IOHelper;
-import com.kiloclient.resource.ResourceHelper;
+import com.kiloclient.friend.party.PartyManager;
 import com.kiloclient.ui.UIHandler;
 import com.kiloclient.users.PlayerHandler;
 import com.kiloclient.users.UserControl;
-import com.kiloclient.utilities.Auth;
+import com.kiloclient.resource.IOHelper;
+import com.kiloclient.resource.ResourceHelper;
+import com.kiloclient.utilities.Authenticator;
 
 //TODO: DO NOT FORGET TO IMPLEMENT CAPES
 
@@ -32,7 +32,7 @@ public class KiLO {
 	
 	private UserControl userControl;
 	
-	private UIHandler uiHandler =new UIHandler();
+	private UIHandler uiHandler = new UIHandler();
 	
 	private MusicHandler musicHandler;
 	
@@ -70,7 +70,7 @@ public class KiLO {
 					if (clientID.length() > 0) {
 						String[] clientDetails = APIHelper.getClientDetails(clientID);
 						if (clientDetails.length == 12) {
-							userControl = new UserControl(clientDetails[0], clientDetails[1], clientDetails[2], clientDetails[3], clientDetails[4], clientDetails[5], clientDetails[6], clientDetails[7], clientDetails[8], clientDetails[9], clientDetails[10], Boolean.parseBoolean(clientDetails[11]));
+							userControl = new UserControl(clientDetails[0], clientDetails[1], clientDetails[2], clientDetails[3], clientDetails[4], clientDetails[5], clientDetails[6], clientDetails[7], clientDetails[8], clientDetails[9]));
 						} else {
 							userControl = null;
 						}
@@ -81,12 +81,12 @@ public class KiLO {
 					userControl = new UserControl(clientID, "User", "", "false", "", "verified", "", "30", "1", null, null, false);
 				}*/
 				
-				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "1", null, null, false);
+				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "4");
 				
 				IOHelper.loadConfigurationFiles();
 				IOHelper.saveConfigurationFiles();
 
-				Auth.instance().username("minecraftfun201@gmail.com").password("jlBjHnM$!O9fUN96wIKLYpVF6r5^%o85c3%%NU13UviMIy$OJQi53ec6UMn6@Z@Zba@C75!tNatbTnK4E595mb1i7$e&k5rtszR@").login();
+				Authenticator.instance().username("email").password("password").login();
 
 			}
 			
@@ -105,7 +105,6 @@ public class KiLO {
 				NotificationManager.update();
 				
 				colorSchemeHandler.setScheme(3);
-
 			}
 		});
 	}

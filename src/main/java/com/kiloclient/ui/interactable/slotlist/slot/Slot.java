@@ -1,17 +1,11 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.lwjgl.input.Keyboard;
-
 import com.kiloclient.ui.InteractableParent;
 import com.kiloclient.ui.interactable.Interactable;
-import com.kiloclient.ui.interactable.TextBox;
 import com.kiloclient.ui.interactable.slotlist.SlotList;
+import com.kiloclient.utilities.IMinecraft;
 
-public class Slot extends InteractableParent {
+public class Slot extends InteractableParent implements IMinecraft {
 
 	public SlotList parent;
 	public boolean shown, enabled, hover, active;

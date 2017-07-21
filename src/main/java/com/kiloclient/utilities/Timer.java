@@ -1,9 +1,5 @@
 package com.kiloclient.utilities;
 
-import java.util.Date;
-
-import net.minecraft.client.Minecraft;
-
 public class Timer {
 
 	private long previousTime;
@@ -13,11 +9,11 @@ public class Timer {
 	}
 	
 	public boolean isTime(float time) {
-		return currentTime() >= time*1000L;
+		return currentTime() >= time * 1000L;
 	}
 	
 	public float currentTime() {
-		return systemTime()-previousTime;
+		return systemTime() - previousTime;
 	}
 	
 	public void reset() {

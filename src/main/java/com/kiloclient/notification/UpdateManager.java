@@ -1,13 +1,14 @@
-package com.kiloclient.manager;
+package com.kiloclient.notification;
 
 import com.kiloclient.KiLO;
+import com.kiloclient.addons.AddonManager;
 import com.kiloclient.api.APIHelper;
+import com.kiloclient.infrastructure.ServerManager;
+import com.kiloclient.friend.*;
+import com.kiloclient.utilities.IMinecraft;
 import com.kiloclient.utilities.Timer;
-import com.kiloclient.utilities.Utilities;
 
-import net.minecraft.client.Minecraft;
-
-public class UpdateManager {
+public class UpdateManager implements IMinecraft {
 
 	public static void initUpdating(final float time) {
 		new Thread() {
@@ -81,13 +82,12 @@ public class UpdateManager {
 		new Thread() {
 			@Override
 			public void run() {
-				Minecraft mc = Minecraft.getMinecraft();
 				boolean singleplayer = mc.isSingleplayer();
 				boolean ingame = mc.world != null;
 				boolean onServer = mc.getCurrentServerData() != null;
 				String ip = onServer?mc.getCurrentServerData().serverIP:"";
 				
-				NotificationManager.list = APIHelper.getUpdates(KiLO.getKiLO().getUserControl().clientID, singleplayer?"singleplayer":ingame && onServer?"multiplayer":(ip.length() > 0?"online":"online"), ip); 
+				NotificationManager.list = APIHelper.getUpdates(KiLO.getKiLO().getUserControl().clientID, singleplayer?"singleplayer":ingame && onServer?"multiplayer":(ip.length() > 0?"online":"online"), ip);
 			}
 		}.start();
 	}

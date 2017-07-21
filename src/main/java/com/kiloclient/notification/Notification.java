@@ -1,4 +1,4 @@
-package com.kiloclient.manager;
+package com.kiloclient.notification;
 
 import com.kiloclient.render.FontHandler;
 import org.lwjgl.opengl.Display;

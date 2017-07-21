@@ -1,6 +1,6 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
-import com.kiloclient.manager.ActivityManager;
+import com.kiloclient.notification.ActivityManager;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.Interactable;
@@ -8,11 +8,7 @@ import com.kiloclient.ui.interactable.slotlist.SlotList;
 import com.kiloclient.utilities.Timer;
 import com.kiloclient.utilities.Utilities;
 
-import net.minecraft.client.Minecraft;
-
 public abstract class ActivitySlot extends Slot {
-
-	final Minecraft mc = Minecraft.getMinecraft();
 	
 	public int index;
 	

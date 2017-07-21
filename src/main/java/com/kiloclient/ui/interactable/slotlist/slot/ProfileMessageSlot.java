@@ -1,21 +1,17 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
-import java.util.ArrayList;
-
 import com.kiloclient.KiLO;
 import com.kiloclient.message.Message;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
+import com.kiloclient.render.utilities.Align;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.slotlist.SlotList;
-import com.kiloclient.render.utilities.Align;
 import com.kiloclient.utilities.Utilities;
 
-import net.minecraft.client.Minecraft;
+import java.util.ArrayList;
 
 public class ProfileMessageSlot extends Slot {
-
-	private final Minecraft mc = Minecraft.getMinecraft();
 	
 	public Message message;
 	

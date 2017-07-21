@@ -4,7 +4,6 @@ import com.kiloclient.addons.bracelet.BraceletRenderer;
 import com.kiloclient.addons.sunglasses.SunglassesRenderer;
 import com.kiloclient.addons.tophat.TopHatRenderer;
 import com.kiloclient.addons.wings.WingsRenderer;
-import com.kiloclient.manager.AddonManager;
 import com.kiloclient.users.User;
 
 import net.minecraft.client.model.ModelBiped;
@@ -26,7 +25,7 @@ public class AddonRenderer {
 		} else {
 			return;
 		}
-		User currentPlayer = AddonManager.users.get(entityPlayer.getDisplayName());
+		User currentPlayer = AddonManager.users.get(entityPlayer.getDisplayName().getUnformattedText());
 		if (currentPlayer == null)
 			return;
 		

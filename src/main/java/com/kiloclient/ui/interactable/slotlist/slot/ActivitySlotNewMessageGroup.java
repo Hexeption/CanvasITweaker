@@ -2,8 +2,8 @@ package com.kiloclient.ui.interactable.slotlist.slot;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.ActivityManager;
-import com.kiloclient.party.Party;
+import com.kiloclient.notification.ActivityManager;
+import com.kiloclient.friend.party.Party;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;

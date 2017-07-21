@@ -1,6 +1,6 @@
 package com.kiloclient.ui;
 
-import com.kiloclient.manager.ChatManager;
+import com.kiloclient.infrastructure.ChatManager;
 import com.kiloclient.mixin.imp.IMixinGuiConnecting;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;

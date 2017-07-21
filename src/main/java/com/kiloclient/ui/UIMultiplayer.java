@@ -10,8 +10,8 @@ import org.newdawn.slick.opengl.Texture;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.ServerManager;
-import com.kiloclient.manager.UpdateManager;
+import com.kiloclient.infrastructure.ServerManager;
+import com.kiloclient.notification.UpdateManager;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
 import com.kiloclient.ui.interactable.Button;

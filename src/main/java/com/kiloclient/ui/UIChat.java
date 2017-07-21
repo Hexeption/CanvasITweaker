@@ -1,7 +1,7 @@
 package com.kiloclient.ui;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.manager.ChatManager;
+import com.kiloclient.infrastructure.ChatManager;
 import com.kiloclient.mixin.imp.IMixinGuiChat;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
@@ -250,11 +250,11 @@ public class UIChat extends UI {
 		if (Minecraft.getMinecraft().gameSettings.chatVisibility != EnumChatVisibility.HIDDEN) {
 			float oldFY = fY;
 			fY+= dY;
-			
+
 			GuiHelper.drawRectangle(fX-(fW/2), fY-(fH/2), fX+(fW/2), fY+(fH/2)+(pad), Utilities.reAlpha(0xFF111111, 0.7f*opacity));
 			//Draw.rect(fX-(fW/2), fY+(fH/2)+(pad), fX+(fW/2), fY+(fH/2)+(pad)+2, Util.reAlpha(ColorManager.getForeground(), 1f*opacity));
 			GuiHelper.drawRectangle(fX-(fW/2), fY+(fH/2)+(pad), fX+(fW/2), fY+(fH/2)+(pad)+2+30, Utilities.reAlpha(KiLO.getKiLO().getColorSchemeHandler().getCurrentBackground(), 0.83f*opacity));
-			
+
 			GuiHelper.startClip(fX-(fW/2)+4, fY-(fH/2)+4, fX+(fW/2)+8, fY+(fH/2));
 			sl.render(opacity);
 			GuiHelper.endClip();

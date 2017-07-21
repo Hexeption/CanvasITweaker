@@ -1,7 +1,7 @@
 package com.kiloclient.ui.popup;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.manager.WorldManager;
+import com.kiloclient.infrastructure.WorldManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;

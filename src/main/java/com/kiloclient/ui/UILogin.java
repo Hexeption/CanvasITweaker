@@ -118,7 +118,7 @@ public class UILogin extends UI {
 							String[] cd = new String[8];
 							cd = APIHelper.getClientDetails(login[0]);
 		
-							KiLO.getKiLO().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8], cd[9], cd[10], Boolean.parseBoolean(cd[11])));
+							KiLO.getKiLO().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8]));
 
 							IOHelper.saveClientConfiguration();
 							

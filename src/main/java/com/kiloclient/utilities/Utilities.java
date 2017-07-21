@@ -1,6 +1,5 @@
 package com.kiloclient.utilities;
 
-import net.minecraft.client.Minecraft;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -12,9 +11,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Utilities {
-	
-	private static final Minecraft mc = Minecraft.getMinecraft();
+public class Utilities implements IMinecraft {
+
 	public static final float doubleClickTimer = 0.3f;
 
 	public static int reAlpha(int color, float alpha) {

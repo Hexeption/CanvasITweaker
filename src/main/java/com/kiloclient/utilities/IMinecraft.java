@@ -3,8 +3,9 @@ package com.kiloclient.utilities;
 import com.kiloclient.mixin.imp.IMixinMinecraft;
 import net.minecraft.client.Minecraft;
 
-public interface IMC {
+public interface IMinecraft {
     Minecraft mc = Minecraft.getMinecraft();
 
     IMixinMinecraft mixinMC = (IMixinMinecraft) mc;
+
 }

@@ -1,18 +1,18 @@
 package com.kiloclient.resource;
 
+import com.kiloclient.render.TextureManager;
+import com.kiloclient.render.utilities.TextureImage;
+import com.kiloclient.utilities.IconUtilities;
+import net.minecraft.world.gen.structure.MapGenNetherBridge.Start;
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.opengl.TextureLoader;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
-
-import net.minecraft.world.gen.structure.MapGenNetherBridge.Start;
-
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
-
-import com.kiloclient.manager.TextureManager;
-import com.kiloclient.render.utilities.TextureImage;
 
 
 public class ResourceHelper {
@@ -85,15 +85,29 @@ public class ResourceHelper {
 	public static Texture[] iconWebsite = new Texture[4];
 	public static Texture[] iconWidgets = new Texture[4];
 	public static Texture[] iconExpand = new Texture[4];
-	
+
+	public static InputStream[] displayIcon;
+
 	public static Texture iconSeparator;
+
 	public static Texture[] iconHacks = new Texture[7];
-	
 	private static final String ASSETS = "assets/kiloclient/";
 	private static final String ASSETS_TEXTURES = ASSETS + "textures/";
+
 	private static final String ASSETS_FONTS = ASSETS + "fonts/";
 
 	public static void loadTextures() throws Exception {
+		displayIcon = new InputStream[]{
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/16x16.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/32x32.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/64x64.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/128x128.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/256x256.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/512x512.png"),
+				ResourceHelper.class.getResourceAsStream("/assets/kiloclient/textures/displayIcon/1024x1024.png")
+		};
+		Display.setIcon(IconUtilities.icon());
+
 		backgroundLight = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/background-light.png"));
 		backgroundDim = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/background-dim.png"));
 		branding = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/branding.png"));
@@ -187,6 +201,7 @@ public class ResourceHelper {
 			iconWidgets[i] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/icons/" + String.valueOf(j) + "/widgets.png"));
 			iconExpand[i] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/icons/" + String.valueOf(j) + "/expand.png"));
 		}
+
 	}
 	
 	public static TextureImage downloadTexture(final String imageURL) {

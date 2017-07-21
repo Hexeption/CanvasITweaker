@@ -1,4 +1,4 @@
-package com.kiloclient.manager;
+package com.kiloclient.friend;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

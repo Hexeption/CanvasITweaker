@@ -1,4 +1,4 @@
-package com.kiloclient.manager;
+package com.kiloclient.infrastructure;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
@@ -6,8 +6,8 @@ import com.kiloclient.KiLO;
 import com.kiloclient.ui.UIChat;
 import com.kiloclient.ui.interactable.TextBox;
 import com.kiloclient.ui.interactable.slotlist.part.ChatLine;
+import com.kiloclient.utilities.IMinecraft;
 import com.kiloclient.utilities.Utilities;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.renderer.GlStateManager;
@@ -29,9 +29,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ChatManager {
-	
-	private static final Minecraft mc = Minecraft.getMinecraft();
+public class ChatManager implements IMinecraft {
+
     private static final Set PROTOCOLS = Sets.newHashSet(new String[] {"http", "https"});
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Splitter NEWLINE_SPLITTER = Splitter.on('\n');
@@ -204,7 +203,7 @@ public class ChatManager {
                 {
                     ;
                 }
-//
+
 //                if (var5 != null)
 //                {
 //                    mc.currentScreen.renderToolTip(var5, x, y);

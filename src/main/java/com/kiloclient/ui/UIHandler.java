@@ -5,7 +5,7 @@ import com.kiloclient.event.EventManager;
 import com.kiloclient.event.base.Listener;
 import com.kiloclient.event.input.EventKeyPressed;
 import com.kiloclient.event.ui.EventTick;
-import com.kiloclient.manager.NotificationManager;
+import com.kiloclient.notification.NotificationManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;

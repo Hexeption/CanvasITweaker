@@ -9,34 +9,34 @@ import net.minecraft.util.Session;
 
 import java.net.Proxy;
 
-public class Auth implements IMC {
+public class Authenticator implements IMinecraft {
 
     private final YggdrasilUserAuthentication authentication;
 
-    public Auth() {
+    public Authenticator() {
 
         this.authentication = (YggdrasilUserAuthentication) new YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
     }
 
-    public static Auth instance() {
+    public static Authenticator instance() {
 
-        return new Auth();
+        return new Authenticator();
     }
 
-    public final Auth username(String username) {
+    public final Authenticator username(String username) {
 
         authentication.setUsername(username);
         return this;
     }
 
-    public final Auth password(String password) {
+    public final Authenticator password(String password) {
 
         authentication.setPassword(password);
         return this;
     }
 
     public final boolean login() {
-        Session session = session();
+        Session session = getSession();
         if(session == null){
             return false;
         }
@@ -45,7 +45,7 @@ public class Auth implements IMC {
         return true;
     }
 
-    private final Session session() {
+    private final Session getSession() {
         try{
             authentication.logIn();
             GameProfile profile = authentication.getSelectedProfile();

@@ -2,8 +2,8 @@ package com.kiloclient.ui;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
-import com.kiloclient.manager.ChatManager;
-import com.kiloclient.manager.FriendManager;
+import com.kiloclient.infrastructure.ChatManager;
+import com.kiloclient.friend.FriendManager;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;
@@ -113,7 +113,7 @@ public class UIMainMenu extends UI {
 		GuiHelper.drawStringFromTTF(FontHandler.STANDARD.get(40), (Display.getWidth() /  2) - (FontHandler.ROUNDED_BOLD.get(14).getWidth(" -  Forums  - ") /  2) + 1, Display.getHeight() - 30 - FontHandler.ROUNDED_BOLD.get(14).getHeight() - 12, "\u00B7", Utilities.reAlpha(ColorHelper.WHITE.getColorCode(), 1f * opacity));
 		GuiHelper.drawStringFromTTF(FontHandler.STANDARD.get(40), (Display.getWidth() /  2) + (FontHandler.ROUNDED_BOLD.get(14).getWidth("Forums  - ") /  2) - 3, Display.getHeight() - 30 - FontHandler.ROUNDED_BOLD.get(14).getHeight() - 12, "\u00B7", Utilities.reAlpha(ColorHelper.WHITE.getColorCode(), 1f * opacity));
 		
-		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20 - FontHandler.ROUNDED_BOLD.get(12).getHeight(), "Copyright 2015 Team KiLO  -  All Rights Reserved", Utilities.reAlpha(KiLO.getKiLO().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
+		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20 - FontHandler.ROUNDED_BOLD.get(12).getHeight(), "Copyright 2015-2017 Team KiLO  -  All Rights Reserved", Utilities.reAlpha(KiLO.getKiLO().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
 		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20, "Minecraft  -  Copyright Mojang AB. Do not distribute!", Utilities.reAlpha(KiLO.getKiLO().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
 		
 		String name = KiLO.getKiLO().getUserControl().kiloName;

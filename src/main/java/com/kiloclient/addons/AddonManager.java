@@ -1,4 +1,4 @@
-package com.kiloclient.manager;
+package com.kiloclient.addons;
 
 import java.util.LinkedHashMap;
 import java.util.List;
