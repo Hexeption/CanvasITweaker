@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.api.APIHelper;
+import com.kiloclient.friend.Message;
 import com.kiloclient.render.utilities.TextureImage;
 import com.kiloclient.resource.ResourceHelper;
 
@@ -12,7 +13,7 @@ public class Friend {
 	public String kiloname, mcname, status, ip, location, skype, steam, website, description;
 	public TextureImage head;
 	
-	public ArrayList<com.kiloclient.message.Message> messages;
+	public ArrayList<Message> messages;
 	
 	public Friend(String kn, String n) {
 		this(kn, n, "Offline", "");

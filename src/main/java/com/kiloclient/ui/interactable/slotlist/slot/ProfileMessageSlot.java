@@ -1,7 +1,7 @@
 package com.kiloclient.ui.interactable.slotlist.slot;
 
 import com.kiloclient.KiLO;
-import com.kiloclient.message.Message;
+import com.kiloclient.friend.Message;
 import com.kiloclient.render.FontHandler;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.Align;

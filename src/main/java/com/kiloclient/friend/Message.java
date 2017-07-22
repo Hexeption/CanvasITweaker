@@ -1,4 +1,4 @@
-package com.kiloclient.message;
+package com.kiloclient.friend;
 
 public class Message {
 	

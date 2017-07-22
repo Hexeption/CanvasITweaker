@@ -9,7 +9,7 @@ import com.kiloclient.api.APIHelper;
 import com.kiloclient.notification.ActivityManager;
 import com.kiloclient.friend.FriendManager;
 import com.kiloclient.notification.UpdateManager;
-import com.kiloclient.message.Message;
+import com.kiloclient.friend.Message;
 import com.kiloclient.friend.party.Party;
 import com.kiloclient.render.GuiHelper;
 import com.kiloclient.render.utilities.ColorHelper;

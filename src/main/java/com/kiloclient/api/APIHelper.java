@@ -4,7 +4,7 @@ import com.kiloclient.KiLO;
 import com.kiloclient.notification.Notification;
 import com.kiloclient.notification.NotificationManager;
 import com.kiloclient.maps.MapHandler;
-import com.kiloclient.message.Message;
+import com.kiloclient.friend.Message;
 import com.kiloclient.friend.party.Party;
 import com.kiloclient.friend.party.Party.PartyMessage;
 import com.kiloclient.render.utilities.TextureImage;
