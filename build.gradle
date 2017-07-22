@@ -68,17 +68,6 @@ configurations {
 
 
 dependencies {
-    compile('org.slick2d:slick2d-core:1.0.0') {
-        exclude module: 'lwjgl'
-    }
-
-    //Event's
-    compile 'com.github.ZeroMemes:Alpine:1.4'
-
-    compile('org.reflections:reflections:0.9.11') {
-        exclude module: 'google-collections'
-        exclude module: 'guava'
-    }
     compile('org.spongepowered:mixin:0.6.10-SNAPSHOT') {
         exclude module: 'launchwrapper'
         exclude module: 'guava'
@@ -90,4 +79,31 @@ dependencies {
 mixin {
     defaultObfuscationEnv notch
     add sourceSets.main, "mixins.client.refmap.json"
+}
+
+
+reobf {
+    shadowJar {
+        classpath = sourceSets.main.compileClasspath
+    }
+}
+
+shadowJar {
+    dependencies {
+        include(dependency('org.spongepowered:mixin'))
+    }
+    exclude 'dummyThing'
+    exclude 'LICENSE.txt'
+    classifier = 'full'
+}
+
+build.dependsOn(shadowJar)
+
+jar {
+    manifest {
+        attributes(
+                "MixinConfigs": 'mixins.client.json',
+                "TweakClass": 'com.kiloclient.launch.Launcher',
+                "TweakOrder": 0)
+    }
 }
