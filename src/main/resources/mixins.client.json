@@ -9,6 +9,7 @@
     "MixinGuiConnecting",
     "MixinGuiMainMenu",
     "MixinGuiWorldSelection",
-    "MixinEntityRenderer"
+    "MixinEntityRenderer",
+    "MixinGuiIngame"
   ]
 }

@@ -16,7 +16,6 @@ import com.kiloclient.ui.interactable.slotlist.SlotList;
 import com.kiloclient.ui.interactable.slotlist.slot.Slot;
 import com.kiloclient.ui.interactable.slotlist.slot.WorldSlot;
 import com.kiloclient.ui.popup.UIPopupWorldRename;
-import com.kiloclient.utilities.EntityFakePlayer;
 import com.kiloclient.utilities.Timer;
 import com.kiloclient.utilities.Utilities;
 import net.minecraft.client.gui.GuiCreateWorld;
@@ -327,7 +326,8 @@ public class UISingleplayer extends UI {
 		wsl.render(opacity);
 		GuiHelper.endClip();
 
-        GuiHelper.drawEntityOnScreen((int) (32 + 200), 600, 200, ((fX - (fW)) - KiLO.getKiLO().getUIHandler().mouse[0]) / 4, ((fY) - (KiLO.getKiLO().getUIHandler().mouse[1])) / 2, new EntityFakePlayer("Hexeption"), Utilities.reAlpha(0xFFFFFFFF, 1f * opacity));
+		// FIXME: 22/07/2017
+//        GuiHelper.drawEntityOnScreen((int) (32 + 200), 600, 200, ((fX - (fW)) - KiLO.getKiLO().getUIHandler().mouse[0]) / 4, ((fY) - (KiLO.getKiLO().getUIHandler().mouse[1])) / 2, new EntityFakePlayer("Hexeption"), Utilities.reAlpha(0xFFFFFFFF, 1f * opacity));
 
         if (model.getTexture() != null) {
 			float scale = 0.7f;

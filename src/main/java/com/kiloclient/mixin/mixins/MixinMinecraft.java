@@ -2,7 +2,6 @@ package com.kiloclient.mixin.mixins;
 
 import com.kiloclient.KiLO;
 import com.kiloclient.event.boot.EventShutdown;
-import com.kiloclient.event.boot.EventStartup;
 import com.kiloclient.event.input.EventKeyPressed;
 import com.kiloclient.event.ui.EventTick;
 import com.kiloclient.mixin.imp.IMixinMinecraft;
@@ -24,20 +23,12 @@ import javax.annotation.Nullable;
 @Mixin(Minecraft.class)
 public class MixinMinecraft implements IMixinMinecraft {
 
-    @Shadow
-    @Nullable
-    public GuiScreen currentScreen;
 
-    @Shadow
-    @Final
+    @Shadow @Nullable public GuiScreen currentScreen;
+
     @Mutable
-    private Session session;
+    @Shadow @Final private Session session;
 
-    @Inject(method = "init", at = @At("RETURN"))
-    private void init(CallbackInfo callbackInfo) {
-
-        KiLO.getKiLO().getEventManager().call(EventStartup.get());
-    }
 
     @Inject(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;runGameLoop()V"))
     private void gameLoop(CallbackInfo callbackInfo) {

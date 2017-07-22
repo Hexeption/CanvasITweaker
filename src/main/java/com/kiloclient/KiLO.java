@@ -32,7 +32,7 @@ public class KiLO {
 	
 	private UserControl userControl;
 	
-	private UIHandler uiHandler = new UIHandler();
+	private UIHandler uiHandler ;
 	
 	private MusicHandler musicHandler;
 	
@@ -58,6 +58,7 @@ public class KiLO {
 					e.printStackTrace();
 				}
 
+				uiHandler= new UIHandler();
 				musicHandler = new MusicHandler();
 				colorSchemeHandler = new ColorSchemeHandler();
 				playerHandler = new PlayerHandler();
