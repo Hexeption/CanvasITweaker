@@ -3,11 +3,13 @@ package com.kiloclient.infrastructure;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 import com.kiloclient.KiLO;
+import com.kiloclient.mixin.imp.IMixinGuiScreen;
 import com.kiloclient.ui.UIChat;
 import com.kiloclient.ui.interactable.TextBox;
 import com.kiloclient.ui.interactable.slotlist.part.ChatLine;
 import com.kiloclient.utilities.IMinecraft;
 import com.kiloclient.utilities.Utilities;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.renderer.GlStateManager;
@@ -25,6 +27,7 @@ import org.lwjgl.input.Keyboard;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -34,13 +37,13 @@ public class ChatManager implements IMinecraft {
     private static final Set PROTOCOLS = Sets.newHashSet(new String[] {"http", "https"});
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Splitter NEWLINE_SPLITTER = Splitter.on('\n');
-	
+
 	public static float chatWidth = 320;
 	public static float chatHeight = 180;
-	
+
 	public static List<ChatLine> chatLines = new CopyOnWriteArrayList<ChatLine>();
-	public static List<String> userHistory = new CopyOnWriteArrayList<String>(); 
-	
+	public static List<String> userHistory = new CopyOnWriteArrayList<String>();
+
 	public static void addChatLine(final TextComponentString m) {
 		chatLines.add(0, new ChatLine(m));
 	}
@@ -48,30 +51,30 @@ public class ChatManager implements IMinecraft {
 	public static List<ChatLine> getList() {
 		return chatLines;
 	}
-	
+
 	public static void addChatLine(ChatLine s) {
 		chatLines.add(s);
 	}
-	
+
 	public static void addChatLine(int index, ChatLine s) {
 		chatLines.add(index, s);
 	}
-	
+
 	public static void removeChatLine(ChatLine s) {
 		chatLines.remove(s);
 	}
-	
+
 	public static void removeChatLine(int index) {
 		chatLines.remove(chatLines.get(index));
 	}
-	
+
 	public static ChatLine getChatLine(int index) {
 		if (chatLines.size() == 0 || index >= chatLines.size()) {
 			return null;
 		}
 		return chatLines.get(index);
 	}
-	
+
 	public static ChatLine getChatLine(String m) {
 		for(ChatLine s : chatLines) {
 			if (s.unformatted.equalsIgnoreCase(m)) {
@@ -80,15 +83,15 @@ public class ChatManager implements IMinecraft {
 		}
 		return null;
 	}
-	
+
 	public static int getIndex(ChatLine s) {
 		return chatLines.indexOf(s);
 	}
-	
+
 	public static int getSize() {
 		return getList().size();
 	}
-	
+
 	public static void handleComponentClick(TextComponentString icc) {
 		if (icc == null || mc.currentScreen == null)
         {
@@ -131,7 +134,7 @@ public class ChatManager implements IMinecraft {
 
                         if (mc.gameSettings.chatLinksPrompt)
                         {
-//                            mc.currentScreen.clickedLinkURI = var3;
+                            ((IMixinGuiScreen) mc.currentScreen).setClickedLinkURI(var3);
                             mc.displayGuiScreen(new GuiConfirmOpenLink(mc.currentScreen, var2.getValue(), 31102009, false));
                         }
                         else
@@ -173,7 +176,7 @@ public class ChatManager implements IMinecraft {
             return;
         }
 	}
-	
+
 	public static void handleComponentHover(TextComponentString icc, int x, int y)
     {
 		x/= 2;
@@ -185,7 +188,7 @@ public class ChatManager implements IMinecraft {
 			return;
 		}
 		mc.getTextureManager().bindTexture(Gui.ICONS);
-		
+
         if (icc != null && icc.getStyle().getHoverEvent() != null)
         {
             HoverEvent var4 = icc.getStyle().getHoverEvent();
@@ -204,14 +207,14 @@ public class ChatManager implements IMinecraft {
                     ;
                 }
 
-//                if (var5 != null)
-//                {
-//                    mc.currentScreen.renderToolTip(var5, x, y);
-//                }
-//                else
-//                {
-//                	mc.currentScreen.drawCreativeTabHoveringText(ChatFormatting.RED + "Invalid Item!", x, y);
-//                }
+                if (var5 != null)
+                {
+                    mc.currentScreen.drawHoveringText(mc.currentScreen.getItemToolTip(var5), x,y);
+                }
+                else
+                {
+                	drawCreativeTabHoveringText(ChatFormatting.RED + "Invalid Item!", x, y);
+                }
             }
             else
             {
@@ -226,5 +229,10 @@ public class ChatManager implements IMinecraft {
             GlStateManager.disableLighting();
         }
         GlStateManager.popMatrix();
+    }
+
+    private static void drawCreativeTabHoveringText(String tabName, int mouseX, int mouseY)
+    {
+        mc.currentScreen.drawHoveringText(Arrays.asList(tabName), mouseX, mouseY);
     }
 }

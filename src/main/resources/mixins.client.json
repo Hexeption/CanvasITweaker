@@ -10,6 +10,8 @@
     "MixinGuiMainMenu",
     "MixinGuiWorldSelection",
     "MixinEntityRenderer",
-    "MixinGuiIngame"
+    "MixinGuiIngame",
+    "MixinGuiScreen",
+    "MixinGuiNewChat"
   ]
 }
