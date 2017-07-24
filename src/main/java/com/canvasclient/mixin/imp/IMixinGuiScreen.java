@@ -1,4 +1,4 @@
-package com.kiloclient.mixin.imp;
+package com.canvasclient.mixin.imp;
 
 import java.net.URI;
 

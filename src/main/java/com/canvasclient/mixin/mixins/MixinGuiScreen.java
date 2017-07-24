@@ -1,6 +1,6 @@
-package com.kiloclient.mixin.mixins;
+package com.canvasclient.mixin.mixins;
 
-import com.kiloclient.mixin.imp.IMixinGuiScreen;
+import com.canvasclient.mixin.imp.IMixinGuiScreen;
 import net.minecraft.client.gui.GuiScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

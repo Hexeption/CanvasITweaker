@@ -1,13 +1,15 @@
 package com.canvasclient.infrastructure;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.Sets;
 import com.canvasclient.Canvas;
 import com.canvasclient.ui.UIChat;
 import com.canvasclient.ui.interactable.TextBox;
 import com.canvasclient.ui.interactable.slotlist.part.ChatLine;
 import com.canvasclient.utilities.IMinecraft;
 import com.canvasclient.utilities.Utilities;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Sets;
+import com.canvasclient.mixin.imp.IMixinGuiScreen;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.renderer.GlStateManager;
@@ -25,6 +27,7 @@ import org.lwjgl.input.Keyboard;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -131,7 +134,7 @@ public class ChatManager implements IMinecraft {
 
                         if (mc.gameSettings.chatLinksPrompt)
                         {
-//                            mc.currentScreen.clickedLinkURI = var3;
+                            ((IMixinGuiScreen) mc.currentScreen).setClickedLinkURI(var3);
                             mc.displayGuiScreen(new GuiConfirmOpenLink(mc.currentScreen, var2.getValue(), 31102009, false));
                         }
                         else
@@ -204,14 +207,14 @@ public class ChatManager implements IMinecraft {
                     ;
                 }
 
-//                if (var5 != null)
-//                {
-//                    mc.currentScreen.renderToolTip(var5, x, y);
-//                }
-//                else
-//                {
-//                	mc.currentScreen.drawCreativeTabHoveringText(ChatFormatting.RED + "Invalid Item!", x, y);
-//                }
+                if (var5 != null)
+                {
+                    mc.currentScreen.drawHoveringText(mc.currentScreen.getItemToolTip(var5), x,y);
+                }
+                else
+                {
+                    drawCreativeTabHoveringText(ChatFormatting.RED + "Invalid Item!", x, y);
+                }
             }
             else
             {
@@ -226,5 +229,10 @@ public class ChatManager implements IMinecraft {
             GlStateManager.disableLighting();
         }
         GlStateManager.popMatrix();
+    }
+
+    private static void drawCreativeTabHoveringText(String tabName, int mouseX, int mouseY)
+    {
+        mc.currentScreen.drawHoveringText(Arrays.asList(tabName), mouseX, mouseY);
     }
 }

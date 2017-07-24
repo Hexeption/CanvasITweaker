@@ -1,6 +1,6 @@
-package com.kiloclient.mixin.mixins;
+package com.canvasclient.mixin.mixins;
 
-import com.kiloclient.infrastructure.ChatManager;
+import com.canvasclient.infrastructure.ChatManager;
 import net.minecraft.client.gui.GuiNewChat;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
