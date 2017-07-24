@@ -1,7 +1,7 @@
 package org.newdawn.slick;
 
-import com.kiloclient.render.utilities.Format;
-import com.kiloclient.utilities.ChatUtilities;
+import com.canvasclient.render.utilities.Format;
+import com.canvasclient.utilities.ChatUtilities;
 import org.newdawn.slick.opengl.GLUtils;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.renderer.Renderer;

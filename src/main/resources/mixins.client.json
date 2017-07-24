@@ -1,7 +1,12 @@
 {
   "required": true,
+<<<<<<< Updated upstream
   "package": "com.kiloclient.mixin.mixins",
   "refmap": "mixins.client.refmap.json",
+=======
+  "package": "com.canvasclient.mixin.mixins",
+  "refmap": "mixins.client.remap.json",
+>>>>>>> Stashed changes
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinEntityRenderer",

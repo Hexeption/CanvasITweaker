@@ -38,7 +38,7 @@ archivesBaseName = modBaseName
 minecraft {
     version = '1.12'
     runDir = 'run'
-    tweakClass = 'com.kiloclient.launch.Launcher'
+    tweakClass = 'com.canvasclient.launch.Launcher'
     mappings = 'snapshot_20170617'
     useDepAts = true
 
@@ -103,7 +103,7 @@ jar {
     manifest {
         attributes(
                 "MixinConfigs": 'mixins.client.json',
-                "TweakClass": 'com.kiloclient.launch.Launcher',
+                "TweakClass": 'com.canvasclient.launch.Launcher',
                 "TweakOrder": 0)
     }
 }
