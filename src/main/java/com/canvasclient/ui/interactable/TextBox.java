@@ -1,20 +1,19 @@
 package com.canvasclient.ui.interactable;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.ClipboardOwner;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-
-import org.lwjgl.input.Keyboard;
-import org.newdawn.slick.TrueTypeFont;
-
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.InteractableParent;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.ChatUtilities;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.input.Keyboard;
+import org.newdawn.slick.TrueTypeFont;
+
+import java.awt.*;
+import java.awt.datatransfer.ClipboardOwner;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
 
 
 public class TextBox extends Interactable {

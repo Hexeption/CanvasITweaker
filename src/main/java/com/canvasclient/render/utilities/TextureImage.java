@@ -1,9 +1,9 @@
 package com.canvasclient.render.utilities;
 
-import java.io.ByteArrayInputStream;
-
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
+
+import java.io.ByteArrayInputStream;
 
 public class TextureImage {
 

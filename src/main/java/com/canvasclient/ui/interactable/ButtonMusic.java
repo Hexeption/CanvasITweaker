@@ -1,13 +1,12 @@
 package com.canvasclient.ui.interactable;
 
-import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.opengl.Texture;
-
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.InteractableParent;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.Utilities;
+import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.opengl.Texture;
 
 
 public class ButtonMusic extends Interactable {

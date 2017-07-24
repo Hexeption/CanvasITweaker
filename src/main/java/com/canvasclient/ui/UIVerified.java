@@ -1,7 +1,5 @@
 package com.canvasclient.ui;
 
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
@@ -9,6 +7,7 @@ import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
 
 public class UIVerified extends UI {
 

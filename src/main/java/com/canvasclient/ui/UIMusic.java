@@ -1,24 +1,14 @@
 package com.canvasclient.ui;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import com.canvasclient.Canvas;
-import net.minecraft.client.renderer.GlStateManager;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
-import com.canvasclient.ui.interactable.ButtonMusic;
-import com.canvasclient.ui.interactable.IconButton;
-import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.ui.interactable.TextBox;
-import com.canvasclient.ui.interactable.VolumeSlider;
+import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.ui.interactable.*;
 import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Playlist;
 import com.canvasclient.ui.interactable.slotlist.part.Song;
@@ -26,9 +16,13 @@ import com.canvasclient.ui.interactable.slotlist.slot.PlaylistSlot;
 import com.canvasclient.ui.interactable.slotlist.slot.Slot;
 import com.canvasclient.ui.interactable.slotlist.slot.SongSlot;
 import com.canvasclient.ui.popup.UIPopupPlaylistCreate;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Utilities;
+import net.minecraft.client.renderer.GlStateManager;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class UIMusic extends UI {
 

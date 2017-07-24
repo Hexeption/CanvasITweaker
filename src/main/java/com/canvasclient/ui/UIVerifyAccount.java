@@ -1,17 +1,16 @@
 package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
-import com.canvasclient.render.FontHandler;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.api.APIHelper;
+import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.Link;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
 
 public class UIVerifyAccount extends UI {
 

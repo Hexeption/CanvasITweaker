@@ -1,13 +1,12 @@
 package com.canvasclient.ui;
 
+import com.canvasclient.ui.interactable.Interactable;
+import com.canvasclient.ui.interactable.TextBox;
+import org.lwjgl.input.Keyboard;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import org.lwjgl.input.Keyboard;
-
-import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.ui.interactable.TextBox;
 
 public abstract class InteractableParent {
 

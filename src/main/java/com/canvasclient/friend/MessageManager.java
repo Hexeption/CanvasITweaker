@@ -1,11 +1,11 @@
 package com.canvasclient.friend;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.ui.interactable.slotlist.part.Message;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MessageManager {
 

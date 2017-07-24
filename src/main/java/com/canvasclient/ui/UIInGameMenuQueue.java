@@ -1,21 +1,20 @@
 package com.canvasclient.ui;
 
-import java.util.Random;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.render.FontHandler;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.Link;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+
+import java.util.Random;
 
 public class UIInGameMenuQueue extends UI {
 

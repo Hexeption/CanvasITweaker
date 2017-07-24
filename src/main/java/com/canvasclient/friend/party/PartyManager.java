@@ -1,9 +1,9 @@
 package com.canvasclient.friend.party;
 
-import java.util.ArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
+
+import java.util.ArrayList;
 
 public class PartyManager {
 	

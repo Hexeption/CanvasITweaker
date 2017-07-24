@@ -1,7 +1,6 @@
 package com.canvasclient.addons.bracelet;
 
 import com.canvasclient.resource.ResourceHelper;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

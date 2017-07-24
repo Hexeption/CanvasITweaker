@@ -1,20 +1,19 @@
 package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
-import org.lwjgl.opengl.Display;
-import org.newdawn.slick.opengl.Texture;
-
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.IconButtonSelectable;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.Link;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
 
 public class UIColorChooser extends UI {
 	

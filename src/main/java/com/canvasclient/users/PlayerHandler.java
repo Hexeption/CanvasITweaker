@@ -1,10 +1,10 @@
 package com.canvasclient.users;
 
+import com.mojang.authlib.GameProfile;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import com.mojang.authlib.GameProfile;
 
 public class PlayerHandler {
 

@@ -1,13 +1,13 @@
 package com.canvasclient.ui.interactable.slotlist;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.render.GuiHelper;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.interactable.slotlist.slot.Slot;
 import com.canvasclient.utilities.Utilities;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SlotList {
 

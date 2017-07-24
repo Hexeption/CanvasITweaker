@@ -1,11 +1,11 @@
 package com.canvasclient.infrastructure;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.ui.interactable.slotlist.part.Server;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ServerManager {
 	

@@ -1,26 +1,21 @@
 package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
+import com.canvasclient.api.APIHelper;
 import com.canvasclient.render.FontHandler;
+import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
+import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.IOHelper;
+import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.ui.interactable.*;
+import com.canvasclient.users.UserControl;
+import com.canvasclient.utilities.ChatUtilities;
+import com.canvasclient.utilities.Timer;
+import com.canvasclient.utilities.Utilities;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
-
-import com.canvasclient.api.APIHelper;
-import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.ColorHelper;
-import com.canvasclient.ui.interactable.Button;
-import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.ui.interactable.Link;
-import com.canvasclient.ui.interactable.PasswordBox;
-import com.canvasclient.ui.interactable.TextBox;
-import com.canvasclient.users.UserControl;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.utilities.ChatUtilities;
-import com.canvasclient.resource.IOHelper;
-import com.canvasclient.resource.ResourceHelper;
-import com.canvasclient.utilities.Timer;
-import com.canvasclient.utilities.Utilities;
 
 public class UILogin extends UI {
 

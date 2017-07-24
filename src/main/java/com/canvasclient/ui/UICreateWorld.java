@@ -1,9 +1,14 @@
 package com.canvasclient.ui;
 
-import java.util.Random;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.render.FontHandler;
+import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
+import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.ui.interactable.*;
+import com.canvasclient.utilities.Timer;
+import com.canvasclient.utilities.Utilities;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ChatAllowedCharacters;
@@ -12,23 +17,11 @@ import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
-
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.opengl.Texture;
 
-import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.ColorHelper;
-import com.canvasclient.ui.interactable.Button;
-import com.canvasclient.ui.interactable.CheckBox;
-import com.canvasclient.ui.interactable.IconButton;
-import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.ui.interactable.TextBox;
-import com.canvasclient.ui.interactable.TextBoxAlt;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
-import com.canvasclient.utilities.Timer;
-import com.canvasclient.utilities.Utilities;
+import java.util.Random;
 
 
 public class UICreateWorld extends UI {

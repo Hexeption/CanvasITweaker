@@ -1,22 +1,21 @@
 package com.canvasclient.ui;
 
-import com.canvasclient.render.FontHandler;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
+import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.Button;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.TextBox;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.ChatUtilities;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
 
 public class UIAddServer extends UI {
 

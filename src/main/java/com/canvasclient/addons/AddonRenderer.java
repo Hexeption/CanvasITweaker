@@ -5,7 +5,6 @@ import com.canvasclient.addons.sunglasses.SunglassesRenderer;
 import com.canvasclient.addons.tophat.TopHatRenderer;
 import com.canvasclient.addons.wings.WingsRenderer;
 import com.canvasclient.users.User;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

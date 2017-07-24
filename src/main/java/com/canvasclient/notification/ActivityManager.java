@@ -1,12 +1,12 @@
 package com.canvasclient.notification;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.ui.interactable.slotlist.part.Activity;
 import com.canvasclient.utilities.ActivityType;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ActivityManager {
 

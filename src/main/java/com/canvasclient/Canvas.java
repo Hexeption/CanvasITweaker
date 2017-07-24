@@ -1,21 +1,21 @@
 package com.canvasclient;
 
+import com.canvasclient.addons.AddonRenderer;
+import com.canvasclient.api.APIHelper;
 import com.canvasclient.event.EventManager;
 import com.canvasclient.event.base.Listener;
 import com.canvasclient.event.boot.EventShutdown;
 import com.canvasclient.event.boot.EventStartup;
 import com.canvasclient.event.ui.EventTick;
-import com.canvasclient.addons.AddonRenderer;
-import com.canvasclient.api.APIHelper;
-import com.canvasclient.users.ColorSchemeHandler;
-import com.canvasclient.notification.NotificationManager;
-import com.canvasclient.music.MusicHandler;
 import com.canvasclient.friend.party.PartyManager;
-import com.canvasclient.ui.UIHandler;
-import com.canvasclient.users.PlayerHandler;
-import com.canvasclient.users.UserControl;
+import com.canvasclient.music.MusicHandler;
+import com.canvasclient.notification.NotificationManager;
 import com.canvasclient.resource.IOHelper;
 import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.ui.UIHandler;
+import com.canvasclient.users.ColorSchemeHandler;
+import com.canvasclient.users.PlayerHandler;
+import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
 
 //TODO: DO NOT FORGET TO IMPLEMENT CAPES

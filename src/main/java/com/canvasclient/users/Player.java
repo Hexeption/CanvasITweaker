@@ -1,11 +1,11 @@
 package com.canvasclient.users;
 
-import java.util.UUID;
-
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.render.utilities.TextureImage;
 import com.canvasclient.resource.ResourceHelper;
 import com.mojang.authlib.GameProfile;
+
+import java.util.UUID;
 
 public class Player {
 

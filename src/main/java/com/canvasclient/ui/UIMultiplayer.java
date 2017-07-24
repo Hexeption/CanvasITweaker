@@ -1,19 +1,14 @@
 package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
-import com.canvasclient.render.FontHandler;
-import net.minecraft.client.gui.GuiMainMenu;
-import net.minecraft.client.multiplayer.GuiConnecting;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-import org.newdawn.slick.opengl.Texture;
-
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.infrastructure.ServerManager;
 import com.canvasclient.notification.UpdateManager;
+import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.Button;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
@@ -22,10 +17,13 @@ import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Server;
 import com.canvasclient.ui.interactable.slotlist.slot.ServerSlot;
 import com.canvasclient.ui.interactable.slotlist.slot.Slot;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.multiplayer.GuiConnecting;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
 
 public class UIMultiplayer extends UI {
 

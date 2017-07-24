@@ -1,9 +1,9 @@
 package com.canvasclient.music;
 
-import com.canvasclient.event.base.Listener;
-import com.canvasclient.event.ui.EventTick;
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
+import com.canvasclient.event.base.Listener;
+import com.canvasclient.event.ui.EventTick;
 import com.canvasclient.ui.interactable.slotlist.part.Playlist;
 import com.canvasclient.ui.interactable.slotlist.part.Song;
 import jaco.mp3.player.MP3Player;

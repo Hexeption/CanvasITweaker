@@ -1,12 +1,12 @@
 package com.canvasclient.api;
 
 import com.canvasclient.Canvas;
-import com.canvasclient.notification.Notification;
-import com.canvasclient.notification.NotificationManager;
-import com.canvasclient.maps.MapHandler;
 import com.canvasclient.friend.Message;
 import com.canvasclient.friend.party.Party;
 import com.canvasclient.friend.party.Party.PartyMessage;
+import com.canvasclient.maps.MapHandler;
+import com.canvasclient.notification.Notification;
+import com.canvasclient.notification.NotificationManager;
 import com.canvasclient.render.utilities.TextureImage;
 import com.canvasclient.resource.IOHelper;
 import com.canvasclient.resource.ResourceHelper;

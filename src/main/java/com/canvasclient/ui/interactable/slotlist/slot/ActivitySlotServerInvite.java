@@ -6,15 +6,14 @@ import com.canvasclient.notification.ActivityManager;
 import com.canvasclient.notification.UpdateManager;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Activity;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Utilities;
-
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.multiplayer.GuiConnecting;
 import net.minecraft.client.multiplayer.ServerData;

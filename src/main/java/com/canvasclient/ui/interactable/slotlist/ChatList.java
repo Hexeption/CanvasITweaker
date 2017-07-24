@@ -1,12 +1,11 @@
 package com.canvasclient.ui.interactable.slotlist;
 
 import com.canvasclient.Canvas;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.render.GuiHelper;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.interactable.slotlist.slot.Slot;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
 
 public class ChatList extends SlotList {
 

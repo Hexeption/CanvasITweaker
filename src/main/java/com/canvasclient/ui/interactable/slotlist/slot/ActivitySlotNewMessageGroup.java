@@ -2,19 +2,19 @@ package com.canvasclient.ui.interactable.slotlist.slot;
 
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
-import com.canvasclient.notification.ActivityManager;
 import com.canvasclient.friend.party.Party;
+import com.canvasclient.notification.ActivityManager;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.UIInGameMenu;
 import com.canvasclient.ui.UIInGameMenuPartyChat;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Activity;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Utilities;
 
 public class ActivitySlotNewMessageGroup extends ActivitySlot {

@@ -3,8 +3,9 @@ package com.canvasclient.notification;
 import com.canvasclient.Canvas;
 import com.canvasclient.addons.AddonManager;
 import com.canvasclient.api.APIHelper;
+import com.canvasclient.friend.FriendManager;
+import com.canvasclient.friend.MessageManager;
 import com.canvasclient.infrastructure.ServerManager;
-import com.canvasclient.friend.*;
 import com.canvasclient.utilities.IMinecraft;
 import com.canvasclient.utilities.Timer;
 

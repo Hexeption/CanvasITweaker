@@ -1,8 +1,8 @@
 package com.canvasclient.ui.interactable.slotlist.part;
 
 import com.canvasclient.render.utilities.TextureImage;
-import com.canvasclient.utilities.ActivityType;
 import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.utilities.ActivityType;
 
 public class Activity {
 

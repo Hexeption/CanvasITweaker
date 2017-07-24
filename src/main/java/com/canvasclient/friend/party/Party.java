@@ -1,8 +1,8 @@
 package com.canvasclient.friend.party;
 
-import java.util.ArrayList;
-
 import com.canvasclient.render.utilities.TextureImage;
+
+import java.util.ArrayList;
 
 public class Party {
 	

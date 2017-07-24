@@ -1,23 +1,16 @@
 package com.canvasclient.resource;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.net.URL;
-
 import com.canvasclient.Canvas;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
+import com.canvasclient.api.APIHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.canvasclient.api.APIHelper;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.*;
+import java.net.URL;
 
 public class IOHelper {
 

@@ -1,10 +1,10 @@
 package com.canvasclient.ui.interactable.slotlist.part;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Playlist {
 

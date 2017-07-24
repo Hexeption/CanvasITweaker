@@ -1,11 +1,11 @@
 package com.canvasclient.addons;
 
+import com.canvasclient.api.APIHelper;
+import com.canvasclient.users.User;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.canvasclient.api.APIHelper;
-import com.canvasclient.users.User;
 
 public class AddonManager {
 

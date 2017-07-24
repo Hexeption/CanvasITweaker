@@ -5,15 +5,14 @@ import com.canvasclient.api.APIHelper;
 import com.canvasclient.infrastructure.ServerManager;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Server;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.ChatUtilities;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
-
 import net.minecraft.client.multiplayer.GuiConnecting;
 
 public class ServerSlot extends Slot {

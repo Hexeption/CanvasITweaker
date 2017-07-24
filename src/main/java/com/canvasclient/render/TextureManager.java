@@ -1,9 +1,9 @@
 package com.canvasclient.render;
 
+import com.canvasclient.render.utilities.TextureImage;
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import com.canvasclient.render.utilities.TextureImage;
 
 public class TextureManager {
 

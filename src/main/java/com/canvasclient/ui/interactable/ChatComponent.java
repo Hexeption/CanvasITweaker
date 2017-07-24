@@ -2,10 +2,10 @@ package com.canvasclient.ui.interactable;
 
 import com.canvasclient.Canvas;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.InteractableParent;
 import com.canvasclient.ui.UIChat;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.ChatUtilities;
 import com.canvasclient.utilities.Utilities;
 import net.minecraft.util.text.TextComponentString;

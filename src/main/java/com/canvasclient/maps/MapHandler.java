@@ -1,19 +1,14 @@
 package com.canvasclient.maps;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
-import java.util.Enumeration;
-
+import com.canvasclient.resource.IOHelper;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.commons.io.FileUtils;
 
-import com.canvasclient.resource.IOHelper;
+import java.io.*;
+import java.net.URL;
+import java.util.Enumeration;
 
 public class MapHandler {
 	

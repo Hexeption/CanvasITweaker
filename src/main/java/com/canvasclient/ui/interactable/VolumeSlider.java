@@ -3,9 +3,9 @@ package com.canvasclient.ui.interactable;
 import com.canvasclient.Canvas;
 import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.ui.InteractableParent;
-import com.canvasclient.render.utilities.Align;
 import com.canvasclient.utilities.Utilities;
 
 

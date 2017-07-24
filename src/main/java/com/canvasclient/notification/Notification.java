@@ -1,15 +1,14 @@
 package com.canvasclient.notification;
 
 import com.canvasclient.render.FontHandler;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.TextureImage;
-import com.canvasclient.render.utilities.ColorHelper;
 import com.canvasclient.render.utilities.Align;
+import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.render.utilities.TextureImage;
 import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
 
 public class Notification {
 

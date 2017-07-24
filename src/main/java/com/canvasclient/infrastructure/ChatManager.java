@@ -1,6 +1,7 @@
 package com.canvasclient.infrastructure;
 
 import com.canvasclient.Canvas;
+import com.canvasclient.mixin.imp.IMixinGuiScreen;
 import com.canvasclient.ui.UIChat;
 import com.canvasclient.ui.interactable.TextBox;
 import com.canvasclient.ui.interactable.slotlist.part.ChatLine;
@@ -8,7 +9,6 @@ import com.canvasclient.utilities.IMinecraft;
 import com.canvasclient.utilities.Utilities;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
-import com.canvasclient.mixin.imp.IMixinGuiScreen;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiConfirmOpenLink;

@@ -1,12 +1,12 @@
 package com.canvasclient.ui.interactable.slotlist.part;
 
-import java.util.ArrayList;
-
 import com.canvasclient.Canvas;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.friend.Message;
 import com.canvasclient.render.utilities.TextureImage;
 import com.canvasclient.resource.ResourceHelper;
+
+import java.util.ArrayList;
 
 public class Friend {
 

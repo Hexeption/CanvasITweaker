@@ -2,15 +2,14 @@ package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
 import com.canvasclient.render.FontHandler;
-import org.lwjgl.opengl.Display;
-import org.newdawn.slick.opengl.Texture;
-
 import com.canvasclient.render.GuiHelper;
-import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.ui.interactable.Link;
 import com.canvasclient.render.utilities.Align;
 import com.canvasclient.resource.ResourceHelper;
+import com.canvasclient.ui.interactable.Interactable;
+import com.canvasclient.ui.interactable.Link;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.opengl.Display;
+import org.newdawn.slick.opengl.Texture;
 
 public class UICompleted extends UI {
 

@@ -1,22 +1,19 @@
 package com.canvasclient.ui.interactable.slotlist.part;
 
+import com.canvasclient.api.APIHelper;
+import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.resource.ResourceHelper;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.client.network.ServerPinger;
+import org.apache.commons.codec.binary.Base64;
+import org.newdawn.slick.opengl.TextureLoader;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.UnknownHostException;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
-
-import net.minecraft.client.network.ServerPinger;
-import org.apache.commons.codec.binary.Base64;
-import org.newdawn.slick.opengl.TextureLoader;
-
-import net.minecraft.client.multiplayer.ServerData;
-
-
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.canvasclient.api.APIHelper;
-import com.canvasclient.render.utilities.TextureImage;
-import com.canvasclient.resource.ResourceHelper;
 
 public class Server {
 

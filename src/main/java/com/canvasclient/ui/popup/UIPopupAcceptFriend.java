@@ -1,19 +1,15 @@
 package com.canvasclient.ui.popup;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.canvasclient.Canvas;
-import com.canvasclient.render.FontHandler;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.notification.ActivityManager;
 import com.canvasclient.notification.UpdateManager;
+import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
-import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.render.utilities.Align;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.render.utilities.TextureImage;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.UI;
 import com.canvasclient.ui.UIInGameMenu;
 import com.canvasclient.ui.UIInGameMenuFriend;
@@ -21,10 +17,13 @@ import com.canvasclient.ui.UIInGameMenuPartyChat;
 import com.canvasclient.ui.interactable.Button;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class UIPopupAcceptFriend extends UI {
 

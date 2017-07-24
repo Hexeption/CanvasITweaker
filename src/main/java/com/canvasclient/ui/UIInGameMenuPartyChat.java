@@ -1,18 +1,18 @@
 package com.canvasclient.ui;
 
 import com.canvasclient.Canvas;
-import com.canvasclient.render.FontHandler;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
-
 import com.canvasclient.api.APIHelper;
-import com.canvasclient.notification.ActivityManager;
 import com.canvasclient.friend.FriendManager;
-import com.canvasclient.notification.UpdateManager;
 import com.canvasclient.friend.Message;
 import com.canvasclient.friend.party.Party;
+import com.canvasclient.notification.ActivityManager;
+import com.canvasclient.notification.UpdateManager;
+import com.canvasclient.render.FontHandler;
 import com.canvasclient.render.GuiHelper;
+import com.canvasclient.render.utilities.Align;
+import com.canvasclient.render.utilities.AnimationTimer;
 import com.canvasclient.render.utilities.ColorHelper;
+import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.interactable.IconButton;
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.TextBox;
@@ -20,26 +20,16 @@ import com.canvasclient.ui.interactable.TextBoxAlt;
 import com.canvasclient.ui.interactable.slotlist.SlotList;
 import com.canvasclient.ui.interactable.slotlist.part.Activity;
 import com.canvasclient.ui.interactable.slotlist.part.Friend;
-import com.canvasclient.ui.interactable.slotlist.slot.ActivitySlotFriendAccepted;
-import com.canvasclient.ui.interactable.slotlist.slot.ActivitySlotFriendRequest;
-import com.canvasclient.ui.interactable.slotlist.slot.ActivitySlotNewMessage;
-import com.canvasclient.ui.interactable.slotlist.slot.ActivitySlotNewMessageGroup;
-import com.canvasclient.ui.interactable.slotlist.slot.ActivitySlotServerInvite;
-import com.canvasclient.ui.interactable.slotlist.slot.FriendSlot;
-import com.canvasclient.ui.interactable.slotlist.slot.PartyMessageSlot;
-import com.canvasclient.ui.interactable.slotlist.slot.PartySlot;
-import com.canvasclient.ui.interactable.slotlist.slot.ProfileMessageSlot;
+import com.canvasclient.ui.interactable.slotlist.slot.*;
 import com.canvasclient.ui.popup.UIPopupAddFriend;
-import com.canvasclient.render.utilities.Align;
-import com.canvasclient.render.utilities.AnimationTimer;
-import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.utilities.Timer;
 import com.canvasclient.utilities.Utilities;
-
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiOptions;
 import net.minecraft.client.gui.GuiShareToLan;
 import net.minecraft.client.multiplayer.WorldClient;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
 
 public class UIInGameMenuPartyChat extends UI {
 

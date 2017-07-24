@@ -1,9 +1,8 @@
 package com.canvasclient.ui.interactable;
 
-import org.newdawn.slick.TrueTypeFont;
-
-import com.canvasclient.ui.InteractableParent;
 import com.canvasclient.render.utilities.Align;
+import com.canvasclient.ui.InteractableParent;
+import org.newdawn.slick.TrueTypeFont;
 
 
 public class PasswordBox extends TextBox {
