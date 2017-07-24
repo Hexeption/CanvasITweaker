@@ -98,7 +98,6 @@ public class UIMainMenu extends UI {
 			w = 708;
 			h = 414;
 			logo = ResourceHelper.brandingSmaller;
-			System.out.println("Smaller logo");
 		}
 		else {
 			w = 1180;

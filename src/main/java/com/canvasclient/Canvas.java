@@ -17,8 +17,8 @@ import com.canvasclient.users.ColorSchemeHandler;
 import com.canvasclient.users.PlayerHandler;
 import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
-
-//TODO: DO NOT FORGET TO IMPLEMENT CAPES
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
 
 public class Canvas {
 
@@ -26,7 +26,7 @@ public class Canvas {
 	
 	private final String NAME = "Canvas";
 	
-	private final String VERSION = "2.0";
+	private final String VERSION = "";
 	
 	private final EventManager eventManager = EventManager.get();
 	
@@ -52,6 +52,7 @@ public class Canvas {
 			public void call(EventStartup event) {
 				try {
 					ResourceHelper.loadTextures();
+					Display.setDisplayMode(new DisplayMode(Display.getWidth() * 4, Display.getHeight() * 4));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,7 +63,6 @@ public class Canvas {
 				playerHandler = new PlayerHandler();
 				addonRenderer = new AddonRenderer();
 				partyManager = new PartyManager();
-				
 
 				/*String clientID = IOHelper.loadClientID();
 				try { 
@@ -80,13 +80,12 @@ public class Canvas {
 					userControl = new UserControl(clientID, "User", "", "false", "", "verified", "", "30", "1", null, null, false);
 				}*/
 				
-				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "4");
+				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "6");
 				
 				IOHelper.loadConfigurationFiles();
 				IOHelper.saveConfigurationFiles();
 
 				Authenticator.instance().username("email").password("password").login();
-
 			}
 			
 		});

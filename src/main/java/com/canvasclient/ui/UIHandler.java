@@ -139,7 +139,7 @@ public class UIHandler {
 				GuiHelper.drawStringFromTTF(FontHandler.STANDARD.get(14), 92, 38, "", 0xFFFFFF);
 			}
 		}
-		Display.setTitle(Canvas.getCanvas().getName() + " " + Canvas.getCanvas().getVersion() + " (" + Minecraft.getMinecraft().getDebugFPS() + ")");
+		Display.setTitle("Minecraft " + Minecraft.getMinecraft().getVersion() + " with Canvas");
 		
 		GlStateManager.popMatrix();
 		GlStateManager.enableDepth();

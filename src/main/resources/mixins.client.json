@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "com.canvasclient.mixin.mixins",
-  "refmap": "mixins.client.remap.json",
+  "refmap": "mixins.client.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinEntityRenderer",
