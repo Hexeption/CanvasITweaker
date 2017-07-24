@@ -1,11 +1,11 @@
 package com.canvasclient.render;
 
-import java.awt.Font;
-import java.io.InputStream;
-import java.util.HashMap;
-
 import com.canvasclient.resource.ResourceHelper;
 import org.newdawn.slick.TrueTypeFont;
+
+import java.awt.*;
+import java.io.InputStream;
+import java.util.HashMap;
 
 public class FontHandler {
 	
@@ -84,7 +84,7 @@ public class FontHandler {
 	public static TrueTypeFont loadTTF(String path, int style, float size) {
 		path = ResourceHelper.ASSETS_FONTS + path;
 		try {
-			InputStream inputStream	= FontHandler.class.getResourceAsStream(path);
+			InputStream inputStream	= FontHandler.class.getClassLoader().getResourceAsStream(path);
 	
 			Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 			font = font.deriveFont(style, size);
