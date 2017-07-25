@@ -83,19 +83,16 @@ public class UIPopupPlaylistDelete extends UI {
 		case 1:
 			if (!deleting) {
 				deleting = true;
-				new Thread() {
-					@Override
-					public void run() {
-						if (APIHelper.playlistRemove(Canvas.getCanvas().getUserControl().clientID, playlist.id)) {
-							((UIMusic)parent).changePopup(null);
-							Canvas.getCanvas().getMusicHandler().getPlaylists().remove(playlist);
-						} else {
-							invalid = true;
-							invalidMessage = "There was a problem removing this playlist";
-							deleting = false;
-						}
-					}
-				}.start();
+				new Thread(() -> {
+                    if (APIHelper.playlistRemove(Canvas.getCanvas().getUserControl().clientID, playlist.id)) {
+                        ((UIMusic)parent).changePopup(null);
+                        Canvas.getCanvas().getMusicHandler().getPlaylists().remove(playlist);
+                    } else {
+                        invalid = true;
+                        invalidMessage = "There was a problem removing this playlist";
+                        deleting = false;
+                    }
+                }).start();
 			}
 			break;
 		case 2:

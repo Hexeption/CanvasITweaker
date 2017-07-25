@@ -121,19 +121,16 @@ public class UIPopupPlaylistEdit extends UI {
 		
 		if (name != null && name.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.playlistRename(Canvas.getCanvas().getUserControl().clientID, playlist.id, name)) {
-						Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
-						((UIMusic)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem editing this playlist";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.playlistRename(Canvas.getCanvas().getUserControl().clientID, playlist.id, name)) {
+                    Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
+                    ((UIMusic)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem editing this playlist";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			invalidMessage = "Please enter a playlist name";
 			invalid = true;

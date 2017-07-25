@@ -21,12 +21,7 @@ public class FriendManager {
 	}
 
 	public static void loadFriends() {
-		new Thread() {
-			@Override
-			public void run() {
-				friends = APIHelper.getFriends(Canvas.getCanvas().getUserControl().clientID);
-			}
-		}.start();
+		new Thread(() -> friends = APIHelper.getFriends(Canvas.getCanvas().getUserControl().clientID)).start();
 	}
 	
 	public static List<Friend> getList() {

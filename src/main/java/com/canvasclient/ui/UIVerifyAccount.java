@@ -52,17 +52,15 @@ public class UIVerifyAccount extends UI {
 		checkRotate+= rotateSpeed;
 		
 		if (timer.isTime(10f)) {
-			new Thread() {
-				public void run() {
-					String[] cd = APIHelper.getClientDetails(Canvas.getCanvas().getUserControl().clientID);
-					if (cd[5].equalsIgnoreCase("verified")) {
-						Canvas.getCanvas().getUIHandler().changeUI(new UIVerified(null));
-						verified = true;
-					} else if (cd[5].equalsIgnoreCase("banned")) {
-						Canvas.getCanvas().getUIHandler().changeUI(new UIWelcome(null));
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                String[] cd = APIHelper.getClientDetails(Canvas.getCanvas().getUserControl().clientID);
+                if (cd[5].equalsIgnoreCase("verified")) {
+                    Canvas.getCanvas().getUIHandler().changeUI(new UIVerified(null));
+                    verified = true;
+                } else if (cd[5].equalsIgnoreCase("banned")) {
+                    Canvas.getCanvas().getUIHandler().changeUI(new UIWelcome(null));
+                }
+            }).start();
 			timer.reset();
 		}
 	}

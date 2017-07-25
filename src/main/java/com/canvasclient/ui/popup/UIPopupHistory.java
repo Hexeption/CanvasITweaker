@@ -42,16 +42,13 @@ public class UIPopupHistory extends UI {
 			fH = 48+48+Math.max(FontHandler.ROUNDED_BOLD.get(20).getHeight(), ((names.size())* FontHandler.ROUNDED_BOLD.get(20).getHeight()));
 		} else {
 			fH = 48+48+ FontHandler.ROUNDED_BOLD.get(20).getHeight();
-			new Thread() {
-				@Override
-				public void run() {
-					try {
-						names = Utilities.getNamesFromUUID(Utilities.getUUIDFromName(HistoryManager.current.gameProfile.getName()));
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                try {
+                    names = Utilities.getNamesFromUUID(Utilities.getUUIDFromName(HistoryManager.current.gameProfile.getName()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
 		}
 
 		interactables.clear();

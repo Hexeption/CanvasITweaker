@@ -159,21 +159,18 @@ public class UIPopupAddFriend extends UI {
 		
 		if (name != null && name.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.friendAdd(Canvas.getCanvas().getUserControl().clientID, name, msg)) {
-						if (parent instanceof UIInGameMenuFriend)
-							((UIInGameMenuFriend)parent).changePopup(null);
-						else
-							((UIInGameMenu)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem adding this user as a friend";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.friendAdd(Canvas.getCanvas().getUserControl().clientID, name, msg)) {
+                    if (parent instanceof UIInGameMenuFriend)
+                        ((UIInGameMenuFriend)parent).changePopup(null);
+                    else
+                        ((UIInGameMenu)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem adding this user as a friend";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			invalidMessage = "Please enter an ingame name";
 			invalid = true;

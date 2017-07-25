@@ -142,73 +142,64 @@ public class UIMusic extends UI {
 			if (loading && searchTags.length() > 0) {
 				displayTags = searchTags;
 				searchTags = "";
-				new Thread() {
-					@Override
-					public void run() {
-						List<Song> s = APIHelper.getSearchSongs(Canvas.getCanvas().getUserControl().clientID, displayTags.toUpperCase());
-						if (s.isEmpty()) {
-							ssl.slots.clear();
-							loading = false;
-							mode = Mode.searchEmpty;
-						} else {
-							ssl.slots.clear();
-							int i = 0;
-							for(Song a : s) {
-								ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
-								i++;
-							}
-							loading = false;
-						}
-					}
-				}.start();
+				new Thread(() -> {
+                    List<Song> s = APIHelper.getSearchSongs(Canvas.getCanvas().getUserControl().clientID, displayTags.toUpperCase());
+                    if (s.isEmpty()) {
+                        ssl.slots.clear();
+                        loading = false;
+                        mode = Mode.searchEmpty;
+                    } else {
+                        ssl.slots.clear();
+                        int i = 0;
+                        for(Song a : s) {
+                            ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
+                            i++;
+                        }
+                        loading = false;
+                    }
+                }).start();
 			}
 			break;
 		case charts:
 			if (loading && loadCharts) {
 				loadCharts = false;
-				new Thread() {
-					@Override
-					public void run() {
-						List<Song> s = APIHelper.getSongCharts(Canvas.getCanvas().getUserControl().clientID);
-						if (s.isEmpty()) {
-							ssl.slots.clear();
-							loading = false;
-							mode = Mode.home;
-						} else {
-							ssl.slots.clear();
-							int i = 0;
-							for(Song a : s) {
-								ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
-								i++;
-							}
-							loading = false;
-						}
-					}
-				}.start();
+				new Thread(() -> {
+                    List<Song> s = APIHelper.getSongCharts(Canvas.getCanvas().getUserControl().clientID);
+                    if (s.isEmpty()) {
+                        ssl.slots.clear();
+                        loading = false;
+                        mode = Mode.home;
+                    } else {
+                        ssl.slots.clear();
+                        int i = 0;
+                        for(Song a : s) {
+                            ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
+                            i++;
+                        }
+                        loading = false;
+                    }
+                }).start();
 			}
 			break;
 		case starred:
 			if (loading && loadStars) {
 				loadStars = false;
-				new Thread() {
-					@Override
-					public void run() {
-						List<Song> s = APIHelper.getSongStars(Canvas.getCanvas().getUserControl().clientID);
-						if (s.isEmpty()) {
-							ssl.slots.clear();
-							loading = false;
-							mode = Mode.home;
-						} else {
-							ssl.slots.clear();
-							int i = 0;
-							for(Song a : s) {
-								ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
-								i++;
-							}
-							loading = false;
-						}
-					}
-				}.start();
+				new Thread(() -> {
+                    List<Song> s = APIHelper.getSongStars(Canvas.getCanvas().getUserControl().clientID);
+                    if (s.isEmpty()) {
+                        ssl.slots.clear();
+                        loading = false;
+                        mode = Mode.home;
+                    } else {
+                        ssl.slots.clear();
+                        int i = 0;
+                        for(Song a : s) {
+                            ssl.slots.add(new SongSlot(ssl, a, ssl.x, ssl.y, ssl.w, 80, 0, i*80));
+                            i++;
+                        }
+                        loading = false;
+                    }
+                }).start();
 			}
 			break;
 		case playlist:

@@ -16,12 +16,7 @@ public class MessageManager {
 	}
 
 	public static void loadMessages() {
-		new Thread() {
-			@Override
-			public void run() {
-				messages = APIHelper.getMessages(Canvas.getCanvas().getUserControl().clientID);
-			}
-		}.start();
+		new Thread(() -> messages = APIHelper.getMessages(Canvas.getCanvas().getUserControl().clientID)).start();
 	}
 	
 	public static List<Message> getList() {

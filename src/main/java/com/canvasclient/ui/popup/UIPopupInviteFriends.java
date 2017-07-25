@@ -159,18 +159,15 @@ public class UIPopupInviteFriends extends UI {
 		
 		if (name != null && name.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.sendServerInvite(Canvas.getCanvas().getUserControl().clientID, name, mc.getCurrentServerData().serverIP, msg)) {
-						((UIInGameMenu)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem sending this invite";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.sendServerInvite(Canvas.getCanvas().getUserControl().clientID, name, mc.getCurrentServerData().serverIP, msg)) {
+                    ((UIInGameMenu)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem sending this invite";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			invalidMessage = "Please enter an ingame name";
 			invalid = true;

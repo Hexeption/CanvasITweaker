@@ -43,28 +43,25 @@ public class MusicHandler {
 	
 	public void playMusic(final List<Song> songList, final Song song) {
 		Canvas.getCanvas().getMusicHandler().stopPlaying();
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					String s = APIHelper.getSongStream(song.id);
-					if (s ==  null) {
-						return;
-					}
-					URL u = new URL(s);
-					musicPlayer = new MP3Player(u);
-					musicPlayer.setRepeat(false);
-					setCurrentSong(song);
-					setCurrentSongList(songList);
-					setVolume(musicVolume);
-					musicPlayer.play();
-					setIsPlaying(true);
-				} catch (Exception e) {
-					setCurrentSong(null);
-					e.printStackTrace();
-				}
-			}
-		}.start();
+		new Thread(() -> {
+            try {
+                String s = APIHelper.getSongStream(song.id);
+                if (s ==  null) {
+                    return;
+                }
+                URL u = new URL(s);
+                musicPlayer = new MP3Player(u);
+                musicPlayer.setRepeat(false);
+                setCurrentSong(song);
+                setCurrentSongList(songList);
+                setVolume(musicVolume);
+                musicPlayer.play();
+                setIsPlaying(true);
+            } catch (Exception e) {
+                setCurrentSong(null);
+                e.printStackTrace();
+            }
+        }).start();
 	}
 	
 	public void pauseCurrentSong() {

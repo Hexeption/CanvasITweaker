@@ -104,21 +104,18 @@ public class UIAddServer extends UI {
 	private void submit() {
 		if (!invalid && validate() == "" && !checking) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					String ip= ((TextBox)interactables.get(2)).getText();
-					String port = ((TextBox)interactables.get(3)).getText();
-					
-					String connect = APIHelper.addServer(ip, port);
-					if (connect != null) {
-						Canvas.getCanvas().getUIHandler().changeUI(parent);
-					} else {
-						invalidMessage = "Failed to add server to database";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                String ip= ((TextBox)interactables.get(2)).getText();
+                String port = ((TextBox)interactables.get(3)).getText();
+
+                String connect = APIHelper.addServer(ip, port);
+                if (connect != null) {
+                    Canvas.getCanvas().getUIHandler().changeUI(parent);
+                } else {
+                    invalidMessage = "Failed to add server to database";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			if (invalid == false) {
 				invalidMessage = validate();

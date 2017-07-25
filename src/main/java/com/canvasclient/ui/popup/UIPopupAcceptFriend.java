@@ -170,21 +170,18 @@ public class UIPopupAcceptFriend extends UI {
 	
 	public void submit() {
 		checking = true;
-		new Thread() {
-			@Override
-			public void run() {
-				if (APIHelper.friendAccept(Canvas.getCanvas().getUserControl().clientID, minecraftName)) {
-					APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(activityIndex).id);
-					ActivityManager.removeActivity(ActivityManager.getActivity(activityIndex));
-					UpdateManager.updateFriendsList();
-					((UIInGameMenu)parent).changePopup(null);
-				} else {
-					checking = false;
-					invalidMessage = "There was a problem accepting this request";
-					invalid = true;
-				}
-			}
-		}.start();
+		new Thread(() -> {
+            if (APIHelper.friendAccept(Canvas.getCanvas().getUserControl().clientID, minecraftName)) {
+                APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(activityIndex).id);
+                ActivityManager.removeActivity(ActivityManager.getActivity(activityIndex));
+                UpdateManager.updateFriendsList();
+                ((UIInGameMenu)parent).changePopup(null);
+            } else {
+                checking = false;
+                invalidMessage = "There was a problem accepting this request";
+                invalid = true;
+            }
+        }).start();
 		if (formOffset < (-FontHandler.STANDARD.get(14).getHeight()*1.5f)) {
 			invalid = false;
 		}

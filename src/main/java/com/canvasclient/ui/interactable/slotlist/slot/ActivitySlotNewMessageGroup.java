@@ -46,13 +46,10 @@ public class ActivitySlotNewMessageGroup extends ActivitySlot {
 		}
 		
 		Canvas.getCanvas().getUIHandler().changeUI(new UIInGameMenuPartyChat(new UIInGameMenu(null, false), party));
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-				ActivityManager.removeActivity(ActivityManager.getActivity(index));
-			}
-		}.start();
+		new Thread(() -> {
+            APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+            ActivityManager.removeActivity(ActivityManager.getActivity(index));
+        }).start();
 	}
 	
 	@Override

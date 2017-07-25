@@ -62,14 +62,11 @@ public class ActivitySlotFriendRequest extends ActivitySlot {
 				break;
 			case 1:
 				checking = true;
-				new Thread() {
-					@Override
-					public void run() {
-						APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-						ActivityManager.removeActivity(ActivityManager.getActivity(index));
-						//UpdateManager.updateLatestActivityList();
-					}
-				}.start();
+				new Thread(() -> {
+                    APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+                    ActivityManager.removeActivity(ActivityManager.getActivity(index));
+                    //UpdateManager.updateLatestActivityList();
+                }).start();
 				break;
 			}
 			break;

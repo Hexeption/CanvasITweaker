@@ -18,12 +18,7 @@ public class Playlist {
 	}
 
 	public void loadSongs() {
-		new Thread() {
-			@Override
-			public void run() {
-				songs = APIHelper.getPlaylistSongs(Canvas.getCanvas().getUserControl().clientID, id);
-			}
-		}.start();
+		new Thread(() -> songs = APIHelper.getPlaylistSongs(Canvas.getCanvas().getUserControl().clientID, id)).start();
 	}
 	
 	public List<Song> getList() {

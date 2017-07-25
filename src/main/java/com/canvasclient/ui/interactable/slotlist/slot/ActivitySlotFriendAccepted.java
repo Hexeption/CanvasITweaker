@@ -35,13 +35,10 @@ public class ActivitySlotFriendAccepted extends ActivitySlot {
 	
 	public void doubleClick(int mx, int my) {
 		checking = true;
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-				ActivityManager.removeActivity(ActivityManager.getActivity(index));
-			}
-		}.start();
+		new Thread(() -> {
+            APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+            ActivityManager.removeActivity(ActivityManager.getActivity(index));
+        }).start();
 	}
 	
 	@Override

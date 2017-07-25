@@ -173,18 +173,15 @@ public class UIPopupMessageReply extends UI {
 		
 		if (msg != null && msg.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, minecraftName, msg)) {
-						((UIInGameMenu)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem replying to this message";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, minecraftName, msg)) {
+                    ((UIInGameMenu)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem replying to this message";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			invalidMessage = "Please enter a message";
 			invalid = true;

@@ -101,45 +101,42 @@ public class UILogin extends UI {
 	private void submit() {
 		if (!invalid && validate() == "" && !checking) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					String username = ((TextBox)interactables.get(0)).getText();
-					String password = ((TextBox)interactables.get(1)).getText();
-					String[] login = APIHelper.login(username, password);
-					if (login != null) {
-						try {
-							long a = Long.parseLong(login[0]);
-							String[] cd = new String[8];
-							cd = APIHelper.getClientDetails(login[0]);
-		
-							Canvas.getCanvas().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8]));
+			new Thread(() -> {
+                String username = ((TextBox)interactables.get(0)).getText();
+                String password = ((TextBox)interactables.get(1)).getText();
+                String[] login = APIHelper.login(username, password);
+                if (login != null) {
+                    try {
+                        long a = Long.parseLong(login[0]);
+                        String[] cd = new String[8];
+                        cd = APIHelper.getClientDetails(login[0]);
 
-							IOHelper.saveClientConfiguration();
-							
-							if (!Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("verified") && !Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("banned")) {
-								Canvas.getCanvas().getUIHandler().changeUI(new UIVerifyAccount(null));
-							} else {
-								if (Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("verified")) {
-									System.out.println("Logged in!");
-									Canvas.getCanvas().getUIHandler().changeUI(new UILoggedIn(null));
-								} else {
-									Canvas.getCanvas().getUIHandler().changeUI(new UIBanned(null));
-								}
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-							invalidMessage = login[1];
-							invalid = true;
-							checking = false;
-						}
-					} else {
-						invalidMessage = "There was a problem connecting to the database";
-						invalid = true;
-						checking = false;
-					}
-				}
-			}.start();
+                        Canvas.getCanvas().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8]));
+
+                        IOHelper.saveClientConfiguration();
+
+                        if (!Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("verified") && !Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("banned")) {
+                            Canvas.getCanvas().getUIHandler().changeUI(new UIVerifyAccount(null));
+                        } else {
+                            if (Canvas.getCanvas().getUserControl().gameStatus.equalsIgnoreCase("verified")) {
+                                System.out.println("Logged in!");
+                                Canvas.getCanvas().getUIHandler().changeUI(new UILoggedIn(null));
+                            } else {
+                                Canvas.getCanvas().getUIHandler().changeUI(new UIBanned(null));
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        invalidMessage = login[1];
+                        invalid = true;
+                        checking = false;
+                    }
+                } else {
+                    invalidMessage = "There was a problem connecting to the database";
+                    invalid = true;
+                    checking = false;
+                }
+            }).start();
 		} else {
 			if (!invalid) {
 				invalidMessage = validate();

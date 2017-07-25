@@ -113,19 +113,16 @@ public class UIPopupPlaylistCreate extends UI {
 		
 		if (name != null && name.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.playlistAdd(Canvas.getCanvas().getUserControl().clientID, name)) {
-						Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
-						((UIMusic)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem creating this playlist";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.playlistAdd(Canvas.getCanvas().getUserControl().clientID, name)) {
+                    Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
+                    ((UIMusic)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem creating this playlist";
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			invalidMessage = "Please enter a playlist name";
 			invalid = true;

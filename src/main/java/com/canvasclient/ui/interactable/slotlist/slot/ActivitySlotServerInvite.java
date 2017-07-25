@@ -47,13 +47,10 @@ public class ActivitySlotServerInvite extends ActivitySlot {
         ActivitySlotServerInvite.this.mc.loadWorld((WorldClient)null);
         
         ActivitySlotServerInvite.this.mc.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), ActivitySlotServerInvite.this.mc, new ServerData("", ActivityManager.getActivity(index).ip, false)));
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-				ActivityManager.removeActivity(ActivityManager.getActivity(index));
-			}
-		}.start();
+		new Thread(() -> {
+            APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+            ActivityManager.removeActivity(ActivityManager.getActivity(index));
+        }).start();
 	}
 	
 	@Override
@@ -68,14 +65,11 @@ public class ActivitySlotServerInvite extends ActivitySlot {
 				break;
 			case 1:
 				checking = true;
-				new Thread() {
-					@Override
-					public void run() {
-						APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-						ActivityManager.removeActivity(ActivityManager.getActivity(index));
-						UpdateManager.updateLatestActivityList();
-					}
-				}.start();
+				new Thread(() -> {
+                    APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+                    ActivityManager.removeActivity(ActivityManager.getActivity(index));
+                    UpdateManager.updateLatestActivityList();
+                }).start();
 				break;
 			}
 			break;

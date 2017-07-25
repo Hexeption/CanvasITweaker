@@ -17,12 +17,7 @@ public class ActivityManager {
 	}
 
 	public static void loadActivities() {
-		new Thread() {
-			@Override
-			public void run() {
-				latestActivities = APIHelper.getLatestActivity(Canvas.getCanvas().getUserControl().clientID);
-			}
-		}.start();
+		new Thread(() -> latestActivities = APIHelper.getLatestActivity(Canvas.getCanvas().getUserControl().clientID)).start();
 	}
 	
 	public static List<Activity> getList() {

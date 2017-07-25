@@ -160,18 +160,15 @@ public class UIPopupMessageCreate extends UI {
 		
 		if (name != null && name.length() > 0 && msg != null && msg.length() > 0) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, name, msg)) {
-						((UIInGameMenu)parent).changePopup(null);
-					} else {
-						checking = false;
-						invalidMessage = "There was a problem sending this message";
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, name, msg)) {
+                    ((UIInGameMenu)parent).changePopup(null);
+                } else {
+                    checking = false;
+                    invalidMessage = "There was a problem sending this message";
+                    invalid = true;
+                }
+            }).start();
 		} else if (name != null && name.length() > 0){
 			invalidMessage = "Please enter a message";
 			invalid = true;

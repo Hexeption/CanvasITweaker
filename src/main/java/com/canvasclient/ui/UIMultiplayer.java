@@ -234,53 +234,42 @@ public class UIMultiplayer extends UI {
 	}
 	
 	public void moveServer(final Server s, final String method) {
-		new Thread() {
-			@Override
-			public void run() {
-				int index = ServerManager.getIndex(s);
-				try {
-					Server temp = s;
-					ServerManager.removeServer(s);
-					ServerManager.addServer(index+(method.equalsIgnoreCase("up")?-1:1), temp);
-					for(Slot ser : ssl.slots) {
-						ser.active = false;
-						if (ServerManager.getServer(((ServerSlot)ser).index).ip == temp.ip) {
-							ser.active = true;
-						}
-					}
-					APIHelper.moveServer(s.ip, method);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}.start();
+		new Thread(() -> {
+            int index = ServerManager.getIndex(s);
+            try {
+                Server temp = s;
+                ServerManager.removeServer(s);
+                ServerManager.addServer(index+(method.equalsIgnoreCase("up")?-1:1), temp);
+                for(Slot ser : ssl.slots) {
+                    ser.active = false;
+                    if (ServerManager.getServer(((ServerSlot)ser).index).ip == temp.ip) {
+                        ser.active = true;
+                    }
+                }
+                APIHelper.moveServer(s.ip, method);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
 	}
 	
 	public void moveToTop(final Server s) {
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.moveServer(s.ip, "top");
-			}
-		}.start();
+		new Thread(() -> APIHelper.moveServer(s.ip, "top")).start();
 	}
 	
 	public void removeServer(final Server s) {
 		if (!deleting) {
 			deleting = true;
-			new Thread() {
-				@Override
-				public void run() {
-					String connect = APIHelper.deleteServer(s.ip);
-					if (connect != null) {
-						ServerManager.removeServer(s);
-					} else {
-						invalidMessage = "Failed to remove server from database";
-						invalid = true;
-					}
-					deleting = false;
-				}
-			}.start();
+			new Thread(() -> {
+                String connect = APIHelper.deleteServer(s.ip);
+                if (connect != null) {
+                    ServerManager.removeServer(s);
+                } else {
+                    invalidMessage = "Failed to remove server from database";
+                    invalid = true;
+                }
+                deleting = false;
+            }).start();
 		}
 		if (formOffset < (-FontHandler.STANDARD.get(14).getHeight()*1.5f)) {
 			invalid = false;

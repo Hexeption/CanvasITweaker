@@ -56,26 +56,11 @@ public class UIInGameMenu extends UI {
 			Canvas.getCanvas().getUIHandler().setCurrentUI(new UIInGameMenuQueue(this));
 		}
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateFriendsList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateFriendsList).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateParties();
-			}
-		}.start();
+		new Thread(UpdateManager::updateParties).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateLatestActivityList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateLatestActivityList).start();
 		
 		title = "Me";
 		
@@ -124,12 +109,7 @@ public class UIInGameMenu extends UI {
 		
 		interactables.add(new IconButton(this, xPosition - (width / 2) + 418, yPosition + (height / 2) - (48 * 1) - 30, 75, 20, Utilities.reAlpha(0xFFc4c4c4, 1f), ResourceHelper.customise));
 		
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.getStatus();
-			}
-		}.start();
+		new Thread(APIHelper::getStatus).start();
 		((Button)interactables.get(6)).text = APIHelper.hideStatus;
 	}
 	
@@ -248,53 +228,28 @@ public class UIInGameMenu extends UI {
 				changePopup(new UIPopupInviteFriends(this));
 				break;
 			case 4:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ADDONS_MANAGE);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ADDONS_MANAGE)).start();
 				break;
 			case 5:
 				changePopup(new UIPopupMessageCreate(this));
 				break;
 			case 6:
-				new Thread() {
-					@Override
-					public void run() {
-						APIHelper.hideStatus();
-					}
-				}.start();
+				new Thread(APIHelper::hideStatus).start();
 				break;
 			case 7:
 				changePopup(new UIPopupAddFriend(this));
 				break;
 			case 8:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.WIDGETS);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.WIDGETS)).start();
 				break;
 			case 9:
 	            mc.displayGuiScreen(new GuiShareToLan(mc.currentScreen));
 				break;
 			case 10:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 11:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 12:
 				Canvas.getCanvas().getMusicHandler().skipToPrevious();
@@ -310,12 +265,7 @@ public class UIInGameMenu extends UI {
 				Canvas.getCanvas().getMusicHandler().skipToNext();
 				break;
 			case 15:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.CUSTOMISE);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.CUSTOMISE)).start();
 				break;
 			}
 		} else {
@@ -336,50 +286,25 @@ public class UIInGameMenu extends UI {
 				changePopup(new UIPopupInviteFriends(this));
 				break;
 			case 4:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ADDONS_MANAGE);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ADDONS_MANAGE)).start();
 				break;
 			case 5:
 				changePopup(new UIPopupMessageCreate(this));
 				break;
 			case 6:
-				new Thread() {
-					@Override
-					public void run() {
-						APIHelper.hideStatus();
-					}
-				}.start();
+				new Thread(APIHelper::hideStatus).start();
 				break;
 			case 7:
 				changePopup(new UIPopupAddFriend(this));
 				break;
 			case 8:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.WIDGETS);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.WIDGETS)).start();
 				break;
 			case 9:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 10:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 11:
 				Canvas.getCanvas().getMusicHandler().skipToPrevious();
@@ -395,12 +320,7 @@ public class UIInGameMenu extends UI {
 				Canvas.getCanvas().getMusicHandler().skipToNext();
 				break;
 			case 14:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb("");
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb("")).start();
 				break;
 			}
 		}

@@ -33,6 +33,8 @@ import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class UIInGameMenuFriend extends UI {
 
 	private UI popup, popupTo;
@@ -72,26 +74,11 @@ public class UIInGameMenuFriend extends UI {
 	@Override
 	public void init() {
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateFriendsList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateFriendsList).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateParties();
-			}
-		}.start();
+		new Thread(UpdateManager::updateParties).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateLatestActivityList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateLatestActivityList).start();
 		
 		try {
 			this.coverImage = ResourceHelper.downloadTexture(String.format(APIHelper.FRIEND_COVER_IMAGE, this.friend.mcname));
@@ -229,22 +216,19 @@ public class UIInGameMenuFriend extends UI {
 		messagesSlotList.y = yPosition + (height / 2) - 8 - (48 * 4) - messagesSlotList.oy - 90;
 		messagesSlotList.w = 420;
 		messagesSlotList.h = 48 * 4 + 30;
-		
-		 new Thread(){
-			@Override
-			public void run() {
-				if(!hasScrolled) {
-					try {
-						this.sleep(500L);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					messagesSlotList.scrollTo = messagesSlotList.h;
-					hasScrolled = true;
+
+		new Thread(() -> {
+			if(!hasScrolled) {
+				try {
+					sleep(500L);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
+				messagesSlotList.scrollTo = messagesSlotList.h;
+				hasScrolled = true;
 			}
-		}.start();
-		
+		}).start();
+
 		if (friendsSlotList.slots.size() != FriendManager.getSize()) {
 			friendsSlotList.slots.clear();
 			int i = 0;
@@ -343,34 +327,19 @@ public class UIInGameMenuFriend extends UI {
 	            mc.displayGuiScreen(new GuiShareToLan(mc.currentScreen));
 				break;
 			case 5:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 7:
 				submit();
 				break;
 			case 8:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 9:
 				Canvas.getCanvas().getUIHandler().setCurrentUI(this.parent);
 				break;
 			case 10:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.FRIEND);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.FRIEND)).start();
 				break;
 			case 11:
 				mc.world.sendQuittingDisconnectingPacket();
@@ -398,34 +367,19 @@ public class UIInGameMenuFriend extends UI {
 				changePopup(new UIPopupAddFriend(this));
 				break;
 			case 4:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 6:
 				submit();
 				break;
 			case 7:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 8:
 				Canvas.getCanvas().getUIHandler().setCurrentUI(this.parent);
 				break;
 			case 9:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.FRIEND);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.FRIEND)).start();
 				break;
 			case 10:
 				mc.world.sendQuittingDisconnectingPacket();
@@ -442,23 +396,20 @@ public class UIInGameMenuFriend extends UI {
 		
 		if (msg != null && msg.length() > 0) {
 			sending = true;
-			new Thread() {
-				@Override
-				public void run() {
-					if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, friend.mcname, msg)) {
-						error = "";
-					} else {
-						sending = false;
-					}
-					
-					UpdateManager.updateFriendsList();
-					((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 6 : 5)).text = "";
-					((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 6 : 5)).fontAlignH = Align.LEFT;
-					Timer updateBuffer = new Timer();
-					if (updateBuffer.isTime(2))
-						sending = false;
-				}
-			}.start();
+			new Thread(() -> {
+                if (APIHelper.sendMessage(Canvas.getCanvas().getUserControl().clientID, friend.mcname, msg)) {
+                    error = "";
+                } else {
+                    sending = false;
+                }
+
+                UpdateManager.updateFriendsList();
+                ((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 6 : 5)).text = "";
+                ((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 6 : 5)).fontAlignH = Align.LEFT;
+                Timer updateBuffer = new Timer();
+                if (updateBuffer.isTime(2))
+                    sending = false;
+            }).start();
 		}
 	}
 	

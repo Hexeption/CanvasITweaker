@@ -116,40 +116,37 @@ public class UINewAccount extends UI {
 	private void submit() {
 		if (!invalid && validate() == "" && !checking) {
 			checking = true;
-			new Thread() {
-				@Override
-				public void run() {
-					String primaryAccount= ((TextBox)interactables.get(0)).getText();
-					String name = ((TextBox)interactables.get(1)).getText();
-					String email = ((TextBox)interactables.get(2)).getText();
-					String password = ((TextBox)interactables.get(3)).getText();
-					String passwordConfirm = ((TextBox)interactables.get(4)).getText();
-					boolean tac = ((CheckBox)interactables.get(9)).active;
-					boolean info = ((CheckBox)interactables.get(10)).active;
-					
-					String[] connect = APIHelper.createAccount(primaryAccount, name, email, password, info);
-					if (connect != null) {
-						try {
-							long a = Long.parseLong(connect[0]);
-							String[] cd = APIHelper.getClientDetails(connect[0]);
-		
-							Canvas.getCanvas().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8]));
-		
-							IOHelper.saveClientConfiguration();
-		
-							Canvas.getCanvas().getUIHandler().changeUI(new UIVerifyAccount(null));
-						} catch (Exception e) {
-							invalidMessage = connect[1];
-							checking = false;
-							invalid = true;
-						}
-					} else {
-						invalidMessage = "There was a problem connecting to the database";
-						checking = false;
-						invalid = true;
-					}
-				}
-			}.start();
+			new Thread(() -> {
+                String primaryAccount= ((TextBox)interactables.get(0)).getText();
+                String name = ((TextBox)interactables.get(1)).getText();
+                String email = ((TextBox)interactables.get(2)).getText();
+                String password = ((TextBox)interactables.get(3)).getText();
+                String passwordConfirm = ((TextBox)interactables.get(4)).getText();
+                boolean tac = ((CheckBox)interactables.get(9)).active;
+                boolean info = ((CheckBox)interactables.get(10)).active;
+
+                String[] connect = APIHelper.createAccount(primaryAccount, name, email, password, info);
+                if (connect != null) {
+                    try {
+                        long a = Long.parseLong(connect[0]);
+                        String[] cd = APIHelper.getClientDetails(connect[0]);
+
+                        Canvas.getCanvas().setUserControl(new UserControl(cd[0], cd[1], cd[2], cd[3], cd[4], cd[5], cd[6], cd[7], cd[8]));
+
+                        IOHelper.saveClientConfiguration();
+
+                        Canvas.getCanvas().getUIHandler().changeUI(new UIVerifyAccount(null));
+                    } catch (Exception e) {
+                        invalidMessage = connect[1];
+                        checking = false;
+                        invalid = true;
+                    }
+                } else {
+                    invalidMessage = "There was a problem connecting to the database";
+                    checking = false;
+                    invalid = true;
+                }
+            }).start();
 		} else {
 			if (invalid == false) {
 				invalidMessage = validate();

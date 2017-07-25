@@ -12,36 +12,33 @@ import com.canvasclient.utilities.Timer;
 public class UpdateManager implements IMinecraft {
 
 	public static void initUpdating(final float time) {
-		new Thread() {
-			@Override
-			public void run() {
-				
-				if (Canvas.getCanvas().getMusicHandler() != null)
-					Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
-				
-				updateFriendsList();
-				updateLatestActivityList();
-				updateMessageList();
-				updateParties();
-				updateFriendsList();
-				
-				Timer premiumTimer = new Timer();
-				premiumTimer.reset();			
-				Timer timer = new Timer();
-				timer.reset();
-				while (true) {
-					if (timer.isTime(time)) {
-						checkUpdate();
-						updateFriendsList();
-						updateLatestActivityList();
-						updateMessageList();
-						updateExtrasList();
-						updateParties();
-						timer.reset();
-					}				
-				}
-			}
-		}.start();
+		new Thread(() -> {
+
+            if (Canvas.getCanvas().getMusicHandler() != null)
+                Canvas.getCanvas().getMusicHandler().setPlaylists(APIHelper.getPlaylists(Canvas.getCanvas().getUserControl().clientID));
+
+            updateFriendsList();
+            updateLatestActivityList();
+            updateMessageList();
+            updateParties();
+            updateFriendsList();
+
+            Timer premiumTimer = new Timer();
+            premiumTimer.reset();
+            Timer timer = new Timer();
+            timer.reset();
+            while (true) {
+                if (timer.isTime(time)) {
+                    checkUpdate();
+                    updateFriendsList();
+                    updateLatestActivityList();
+                    updateMessageList();
+                    updateExtrasList();
+                    updateParties();
+                    timer.reset();
+                }
+            }
+        }).start();
 	}
 	
 	public static void updateMultiplayerServerList() {
@@ -80,17 +77,14 @@ public class UpdateManager implements IMinecraft {
 		if (Canvas.getCanvas().getUserControl() == null) {
 			return;
 		}
-		new Thread() {
-			@Override
-			public void run() {
-				boolean singleplayer = mc.isSingleplayer();
-				boolean ingame = mc.world != null;
-				boolean onServer = mc.getCurrentServerData() != null;
-				String ip = onServer?mc.getCurrentServerData().serverIP:"";
-				
-				NotificationManager.list = APIHelper.getUpdates(Canvas.getCanvas().getUserControl().clientID, singleplayer?"singleplayer":ingame && onServer?"multiplayer":(ip.length() > 0?"online":"online"), ip);
-			}
-		}.start();
+		new Thread(() -> {
+            boolean singleplayer = mc.isSingleplayer();
+            boolean ingame = mc.world != null;
+            boolean onServer = mc.getCurrentServerData() != null;
+            String ip = onServer?mc.getCurrentServerData().serverIP:"";
+
+            NotificationManager.list = APIHelper.getUpdates(Canvas.getCanvas().getUserControl().clientID, singleplayer?"singleplayer":ingame && onServer?"multiplayer":(ip.length() > 0?"online":"online"), ip);
+        }).start();
 	}
 	
 	public static void updateExtrasList() {

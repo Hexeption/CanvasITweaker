@@ -83,27 +83,24 @@ public class ServerSlot extends Slot {
 	}
 	
 	public void moveServer(final Server s, final String method) {
-		new Thread() {
-			@Override
-			public void run() {
-				int index = ServerManager.getIndex(s);
-				try {
-					Server temp = s;
-					ServerManager.removeServer(s);
-					ServerManager.addServer(index+(method.equalsIgnoreCase("up")?-1:1), temp);
-					for(Slot s : parent.slots) {
-						ServerSlot ser = (ServerSlot)s;
-						ser.active = false;
-						if (ServerManager.getServer(ser.index).ip == temp.ip) {
-							ser.active = true;
-						}
-					}
-					APIHelper.moveServer(s.ip, method);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}.start();
+		new Thread(() -> {
+            int index = ServerManager.getIndex(s);
+            try {
+                Server temp = s;
+                ServerManager.removeServer(s);
+                ServerManager.addServer(index+(method.equalsIgnoreCase("up")?-1:1), temp);
+                for(Slot s1 : parent.slots) {
+                    ServerSlot ser = (ServerSlot) s1;
+                    ser.active = false;
+                    if (ServerManager.getServer(ser.index).ip == temp.ip) {
+                        ser.active = true;
+                    }
+                }
+                APIHelper.moveServer(s.ip, method);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
 	}
 	
 	public void render(float opacity) {

@@ -41,13 +41,10 @@ public class ActivitySlotNewMessage extends ActivitySlot {
 		Friend friend = FriendManager.getFriend(((Activity)ActivityManager.getActivity(index)).minecraftName);
 		
 		Canvas.getCanvas().getUIHandler().setCurrentUI(new UIInGameMenuFriend(new UIInGameMenu(null, false), friend));
-		new Thread() {
-			@Override
-			public void run() {
-				APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
-				ActivityManager.removeActivity(ActivityManager.getActivity(index));;
-			}
-		}.start();
+		new Thread(() -> {
+            APIHelper.removeActivity(Canvas.getCanvas().getUserControl().clientID, ActivityManager.getActivity(index).id);
+            ActivityManager.removeActivity(ActivityManager.getActivity(index));;
+        }).start();
 	}
 	
 	@Override

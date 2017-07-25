@@ -31,6 +31,8 @@ import net.minecraft.client.multiplayer.WorldClient;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
+import static java.lang.Thread.sleep;
+
 public class UIInGameMenuPartyChat extends UI {
 
 	private UI popup, popupTo;
@@ -59,26 +61,11 @@ public class UIInGameMenuPartyChat extends UI {
 	@Override
 	public void init() {
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateFriendsList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateFriendsList).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateParties();
-			}
-		}.start();
+		new Thread(UpdateManager::updateParties).start();
 		
-		new Thread() {
-			@Override
-			public void run() {
-				UpdateManager.updateLatestActivityList();
-			}
-		}.start();
+		new Thread(UpdateManager::updateLatestActivityList).start();
 		
 		xPosition = Display.getWidth() / 2;
 		yPosition = (Display.getHeight() / 2);
@@ -156,20 +143,17 @@ public class UIInGameMenuPartyChat extends UI {
 		messagesSlotList.w = 628;
 		messagesSlotList.h = 48 * 4 + 133;
 		
-		 new Thread(){
-				@Override
-				public void run() {
-					if(!hasScrolled) {
-						try {
-							this.sleep(500L);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						messagesSlotList.scrollTo = messagesSlotList.h;
-						hasScrolled = true;
-					}
-				}
-			}.start();
+		 new Thread(() -> {
+			 if(!hasScrolled) {
+				 try {
+					 sleep(500L);
+				 } catch (InterruptedException e) {
+					 e.printStackTrace();
+				 }
+				 messagesSlotList.scrollTo = messagesSlotList.h;
+				 hasScrolled = true;
+			 }
+         }).start();
 		
 		if (friendsSlotList.slots.size() != FriendManager.getSize()) {
 			friendsSlotList.slots.clear();
@@ -269,20 +253,10 @@ public class UIInGameMenuPartyChat extends UI {
 				mc.displayGuiScreen(new GuiShareToLan(mc.currentScreen));
 				break;
 			case 5:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 6:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 7:
 				submit();
@@ -306,20 +280,10 @@ public class UIInGameMenuPartyChat extends UI {
 				changePopup(new UIPopupAddFriend(this));
 				break;
 			case 4:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.ORDER);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.ORDER)).start();
 				break;
 			case 5:
-				new Thread() {
-					@Override
-					public void run() {
-						Utilities.openWeb(APIHelper.PARTY);
-					}
-				}.start();
+				new Thread(() -> Utilities.openWeb(APIHelper.PARTY)).start();
 				break;
 			case 6:
 				submit();
@@ -333,30 +297,24 @@ public class UIInGameMenuPartyChat extends UI {
 		
 		if (msg != null && msg.length() > 0) {
 			sending = true;
-			new Thread() {
-				@Override
-				public void run() {
-					APIHelper.sendPartyMessage(Canvas.getCanvas().getUserControl().clientID, party.partyID, ((TextBoxAlt)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 8 : 7)).getText());
-					UpdateManager.updateParties();
-					((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 8 : 7)).text = "";
-					
-					Timer updateBuffer = new Timer();
-					if (updateBuffer.isTime(2))
-						sending = false;
+			new Thread(() -> {
+                APIHelper.sendPartyMessage(Canvas.getCanvas().getUserControl().clientID, party.partyID, ((TextBoxAlt)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 8 : 7)).getText());
+                UpdateManager.updateParties();
+                ((TextBox)interactables.get(mc.isSingleplayer() && !mc.getIntegratedServer().getPublic() ? 8 : 7)).text = "";
+
+                Timer updateBuffer = new Timer();
+                if (updateBuffer.isTime(2))
+                    sending = false;
+            }).start();
+
+			new Thread(() -> {
+				try {
+					sleep(500L);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-			}.start();
-			
-			 new Thread(){
-					@Override
-					public void run() {
-						try {
-							this.sleep(500L);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						messagesSlotList.scrollTo = messagesSlotList.h;
-					}
-			 }.start();
+				messagesSlotList.scrollTo = messagesSlotList.h;
+			}).start();
 		}
 	}
 	

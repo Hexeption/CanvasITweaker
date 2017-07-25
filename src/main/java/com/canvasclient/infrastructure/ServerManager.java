@@ -21,13 +21,10 @@ public class ServerManager {
 	}
 
 	public static void loadServers() {
-		new Thread() {
-			@Override
-			public void run() {
-				servers.clear();
-				servers = APIHelper.getServers(Canvas.getCanvas().getUserControl().clientID);
-			}
-		}.start();
+		new Thread(() -> {
+            servers.clear();
+            servers = APIHelper.getServers(Canvas.getCanvas().getUserControl().clientID);
+        }).start();
 	}
 	
 	public static List<Server> getServerList() {

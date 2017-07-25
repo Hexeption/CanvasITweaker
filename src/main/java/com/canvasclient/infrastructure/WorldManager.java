@@ -17,23 +17,20 @@ public class WorldManager implements IMinecraft {
 	private static List<WorldSummary> worlds = new CopyOnWriteArrayList<WorldSummary>();
 	
 	public static void loadWorlds() {
-		new Thread() {
-			@Override
-			public void run() {
-				try
-		        {
-			        ISaveFormat var1 = mc.getSaveLoader();
-			        worlds = var1.getSaveList();
-			        Collections.sort(worlds);
-		        }
-		        catch (AnvilConverterException var2)
-		        {
-		            logger.error("Couldn\'t load level list", var2);
-		            //mc.displayGuiScreen(new GuiErrorScreen("Unable to load worlds", var2.getMessage()));
-		            return;
-		        }
-			}
-		}.start();
+		new Thread(() -> {
+            try
+            {
+                ISaveFormat var1 = mc.getSaveLoader();
+                worlds = var1.getSaveList();
+                Collections.sort(worlds);
+            }
+            catch (AnvilConverterException var2)
+            {
+                logger.error("Couldn\'t load level list", var2);
+                //mc.displayGuiScreen(new GuiErrorScreen("Unable to load worlds", var2.getMessage()));
+                return;
+            }
+        }).start();
 	}
 	
 	public static List<WorldSummary> getList() {
