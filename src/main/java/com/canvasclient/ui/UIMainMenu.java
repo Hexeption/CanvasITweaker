@@ -95,13 +95,13 @@ public class UIMainMenu extends UI {
 		float w;
 		float h;
 		if (Display.getHeight() < 800 || Display.getWidth() < 1400){
-			w = 708;
-			h = 414;
+			w = 702;
+			h = 200;
 			logo = ResourceHelper.brandingSmaller;
 		}
 		else {
 			w = 1180;
-			h = 690;
+			h = 325;
 			logo = ResourceHelper.branding;
 		}
 

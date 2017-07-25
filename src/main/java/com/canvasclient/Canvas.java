@@ -52,7 +52,7 @@ public class Canvas {
 			public void call(EventStartup event) {
 				try {
 					ResourceHelper.loadTextures();
-					Display.setDisplayMode(new DisplayMode(Display.getWidth() * 4, Display.getHeight() * 4));
+					Display.setDisplayMode(new DisplayMode(1280, 720));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
