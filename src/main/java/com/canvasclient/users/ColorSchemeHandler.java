@@ -5,8 +5,7 @@ import com.canvasclient.Canvas;
 public class ColorSchemeHandler {
 	
 	private int currentScheme = -1;
-
-	// TODO: 26/07/2017 Add the new colour (#575e6a, #434a54)
+	
 	private final ColorScheme[] COLOR_SCHEMES = new ColorScheme[]{
 		new ColorScheme(0xFFED5564, 0xFFDA4352, '4'),
 		new ColorScheme(0xFFFC6C51, 0xFFE9573E, 'c'),

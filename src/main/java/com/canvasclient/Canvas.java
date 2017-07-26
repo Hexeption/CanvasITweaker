@@ -17,6 +17,8 @@ import com.canvasclient.users.ColorSchemeHandler;
 import com.canvasclient.users.PlayerHandler;
 import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
 
 public class Canvas {
 
@@ -50,6 +52,7 @@ public class Canvas {
 			public void call(EventStartup event) {
 				try {
 					ResourceHelper.loadTextures();
+					Display.setDisplayMode(new DisplayMode(1280, 720));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
