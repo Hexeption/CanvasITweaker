@@ -16,7 +16,6 @@ public class ColorSchemeHandler {
 			new ColorScheme(0xFF6099F2, 0xFF4B89DC, '9'),
 			new ColorScheme(0xFFAC92ED, 0xFF967BDC, 'd'),
 			new ColorScheme(0xFFEC87BF, 0xFFD870AD, 'd'),
-			new ColorScheme(0xFFF6F7FB, 0xFFE6E9EE, '7'),
 			new ColorScheme(0xFF575E6A, 0xFF434A54, '8'),
 	};
 	

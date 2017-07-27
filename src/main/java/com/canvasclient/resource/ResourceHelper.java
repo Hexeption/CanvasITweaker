@@ -33,7 +33,7 @@ public class ResourceHelper {
 	public static Texture addonBlack;
 	public static Texture addonWhite;
 	
-	public static Texture[] colorChooserColors = new Texture[9];
+	public static Texture[] colorPalette = new Texture[10];
 	
 	public static Texture[] iconAccept = new Texture[6];
 	public static Texture[] iconAdd = new Texture[6];
@@ -120,15 +120,16 @@ public class ResourceHelper {
 		iconHacks[5] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/icons/cheats/misc.png"));
 		iconHacks[6] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES + "gui/icons/cheats/player.png"));
 		
-		colorChooserColors[0] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/0.png"));
-		colorChooserColors[1] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/1.png"));
-		colorChooserColors[2] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/2.png"));
-		colorChooserColors[3] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/3.png"));
-		colorChooserColors[4] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/4.png"));
-		colorChooserColors[5] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/5.png"));
-		colorChooserColors[6] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/6.png"));
-		colorChooserColors[7] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/7.png"));
-		colorChooserColors[8] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/8.png"));
+		colorPalette[0] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/0.png"));
+		colorPalette[1] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/1.png"));
+		colorPalette[2] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/2.png"));
+		colorPalette[3] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/3.png"));
+		colorPalette[4] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/4.png"));
+		colorPalette[5] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/5.png"));
+		colorPalette[6] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/6.png"));
+		colorPalette[7] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/7.png"));
+		colorPalette[8] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/8.png"));
+		colorPalette[9] = TextureLoader.getTexture("PNG", Start.class.getClassLoader().getResourceAsStream(ASSETS_TEXTURES  + "gui/colorpalettes/9.png"));
 		
 		int[] sizes = new int[] {8, 16, 24, 32, 48, 64};
 		for(int i = 0; i < 6; i++) {

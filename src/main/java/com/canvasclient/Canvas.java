@@ -17,6 +17,7 @@ import com.canvasclient.ui.colorscheme.ColorSchemeHandler;
 import com.canvasclient.users.PlayerHandler;
 import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
+import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
@@ -53,6 +54,7 @@ public class Canvas {
 				try {
 					ResourceHelper.loadTextures();
 					Display.setDisplayMode(new DisplayMode(1280, 720));
+					Display.setTitle("Minecraft " + Minecraft.getMinecraft().getVersion() + " with Canvas");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

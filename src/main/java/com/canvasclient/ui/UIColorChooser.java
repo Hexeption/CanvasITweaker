@@ -31,19 +31,20 @@ public class UIColorChooser extends UI {
 		float width = Display.getWidth();
 		float height = Display.getHeight();
 		
-		title = "Customise Canvas";
+		title = "Customize Canvas";
 		interactables.clear();
 		int i = 0;
-		interactables.add(new Link(this, "CONTINUE",  width / 1.225F, height / 1.31F + ((height / 1.125F - height / 1.325F) / 4), FontHandler.ROUNDED_BOLD.get(30), 0xFF464646, Align.LEFT, Align.TOP));
-		interactables.add(new IconButtonSelectable(this, width / 6, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[0]));
-		interactables.add(new IconButtonSelectable(this, width / 4.2F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[1]));
-		interactables.add(new IconButtonSelectable(this, width / 3.225F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[2]));
-		interactables.add(new IconButtonSelectable(this, width / 2.625F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[3]));
-		interactables.add(new IconButtonSelectable(this, width / 2.2125F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[4]));
-		interactables.add(new IconButtonSelectable(this, width / 1.9125F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[5]));
-		interactables.add(new IconButtonSelectable(this, width / 1.6875F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[6]));
-		interactables.add(new IconButtonSelectable(this, width / 1.505F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[7]));
-		interactables.add(new IconButtonSelectable(this, width / 1.36F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorChooserColors[8]));
+		interactables.add(new Link(this, "OK",  width / 1.12F, height / 1.31F + ((height / 1.125F - height / 1.325F) / 4), FontHandler.ROUNDED_BOLD.get(30), 0xFF464646, Align.LEFT, Align.TOP));
+		interactables.add(new IconButtonSelectable(this, width / 6, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[0]));
+		interactables.add(new IconButtonSelectable(this, width / 4.2F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[1]));
+		interactables.add(new IconButtonSelectable(this, width / 3.225F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[2]));
+		interactables.add(new IconButtonSelectable(this, width / 2.625F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[3]));
+		interactables.add(new IconButtonSelectable(this, width / 2.2125F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[4]));
+		interactables.add(new IconButtonSelectable(this, width / 1.9125F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[5]));
+		interactables.add(new IconButtonSelectable(this, width / 1.6875F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[6]));
+		interactables.add(new IconButtonSelectable(this, width / 1.505F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[7]));
+		interactables.add(new IconButtonSelectable(this, width / 1.36F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[8]));
+		interactables.add(new IconButtonSelectable(this, width / 1.24F, height / 1.345F + ((height / 1.125F - height / 1.325F) / 4), 64, 64, 0xFFFFFFFF, ResourceHelper.colorPalette[9]));
 	}
 	
 	public void update(int mx, int my) {
