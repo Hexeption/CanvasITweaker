@@ -34,6 +34,7 @@ public class FontHandler {
 	private static final TrueTypeFont ROUNDED_30 = loadTTF(FONT_ROUNDED + "-regular.ttf", Font.PLAIN, 30);
 	private static final TrueTypeFont ROUNDED_40 = loadTTF(FONT_ROUNDED + "-regular.ttf", Font.PLAIN, 40);
 	private static final TrueTypeFont ROUNDED_50 = loadTTF(FONT_ROUNDED + "-regular.ttf", Font.PLAIN, 50);
+	private static final TrueTypeFont ROUNDED_100 = loadTTF(FONT_ROUNDED + "-regular.ttf", Font.PLAIN, 100);
 	public static final HashMap<String, TrueTypeFont> ROUNDED = new HashMap() {{
 		put(10, ROUNDED_10);
 		put(12, ROUNDED_12);
@@ -44,6 +45,7 @@ public class FontHandler {
 		put(30, ROUNDED_30);
 		put(40, ROUNDED_40);
 		put(50, ROUNDED_50);
+		put(100, ROUNDED_100);
 	}};
 	
 	private static final TrueTypeFont ROUNDED_BOLD_10 = loadTTF(FONT_ROUNDED + "-bold.ttf", Font.PLAIN, 10);
