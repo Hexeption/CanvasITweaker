@@ -13,7 +13,7 @@ import com.canvasclient.notification.NotificationManager;
 import com.canvasclient.resource.IOHelper;
 import com.canvasclient.resource.ResourceHelper;
 import com.canvasclient.ui.UIHandler;
-import com.canvasclient.users.ColorSchemeHandler;
+import com.canvasclient.ui.colorscheme.ColorSchemeHandler;
 import com.canvasclient.users.PlayerHandler;
 import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
@@ -80,7 +80,7 @@ public class Canvas {
 					userControl = new UserControl(clientID, "User", "", "false", "", "verified", "", "30", "1", null, null, false);
 				}*/
 				
-				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "6");
+				userControl = new UserControl("", "User", "", "false", "", "verified", "", "30", "9");
 				
 				IOHelper.loadConfigurationFiles();
 				IOHelper.saveConfigurationFiles();
@@ -101,7 +101,7 @@ public class Canvas {
 			@Override
 			public void call(EventTick event) {
 				NotificationManager.update();
-				
+
 				colorSchemeHandler.setScheme(3);
 			}
 		});

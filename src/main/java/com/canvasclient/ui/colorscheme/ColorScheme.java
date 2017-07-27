@@ -1,4 +1,4 @@
-package com.canvasclient.users;
+package com.canvasclient.ui.colorscheme;
 
 public class ColorScheme {
 
