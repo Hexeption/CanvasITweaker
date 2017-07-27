@@ -48,10 +48,10 @@ public class TrueTypeFont implements Font {
 	private Texture fontTexture;
 	
 	/** Default font texture width */
-	private int textureWidth = 1024;
+	private int textureWidth = 2048;
 
 	/** Default font texture height */
-	private int textureHeight = 1024;
+	private int textureHeight = 2048;
 
 	/** A reference to Java's AWT Font that we create our font texture from */
 	private java.awt.Font font;

@@ -106,7 +106,7 @@ public class UIMainMenu extends UI {
 
 		float x = Math.round((Display.getWidth() /  2) - (w /  2));
 		float y = Math.round((Display.getHeight() /  2)  -  (h /  2));
-		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED.get(100), Display.getWidth() / 2, Display.getHeight() / 2, "canvas", Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1F  *  opacity), Align.CENTER, Align.CENTER);
+		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED.get(200), Display.getWidth() / 2.0F, Display.getHeight() / 2.25F, "canvas", Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1F  *  opacity), Align.CENTER, Align.CENTER);
 		//GuiHelper.drawTexturedRectangle(x, y, w, h, logo, Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1F  *  opacity));
 		GuiHelper.drawRoundedRectangle((Display.getWidth() /  2)  -  (FontHandler.ROUNDED_BOLD.get(14).getWidth(" -  Forums  - ") /  2)  -  FontHandler.ROUNDED_BOLD.get(14).getWidth("Pods")  -  15, Display.getHeight() - 52, (Display.getWidth() /  2)  +  (FontHandler.ROUNDED_BOLD.get(14).getWidth(" -  Forums  - ") /  2)  +  FontHandler.ROUNDED_BOLD.get(14).getWidth("Help")  +  15, Display.getHeight() - 22, Utilities.reAlpha(0xFF2F2F2F, 0.71f));
 

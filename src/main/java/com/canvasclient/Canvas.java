@@ -53,11 +53,6 @@ public class Canvas {
 			public void call(EventStartup event) {
 				try {
 					ResourceHelper.loadTextures();
-
-					if(Minecraft.IS_RUNNING_ON_MAC) {
-						Display.setDisplayMode(new DisplayMode(1280, 720));
-					}
-
 					Display.setTitle("Minecraft " + Minecraft.getMinecraft().getVersion() + " with Canvas");
 				} catch (Exception e) {
 					e.printStackTrace();
