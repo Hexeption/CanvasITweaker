@@ -24,10 +24,26 @@ import javax.annotation.Nullable;
 public class MixinMinecraft implements IMixinMinecraft {
 
 
-    @Shadow @Nullable public GuiScreen currentScreen;
+    @Shadow
+    @Nullable
+    public GuiScreen currentScreen;
 
     @Mutable
-    @Shadow @Final private Session session;
+    @Shadow
+    @Final
+    private Session session;
+
+    @Shadow public int displayWidth;
+
+    @Shadow public int displayHeight;
+
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void setGameSize(CallbackInfo callbackInfo) {
+        if(!Minecraft.IS_RUNNING_ON_MAC) {
+            this.displayWidth = 1280;
+            this.displayHeight = 720;
+        }
+    }
 
 
     @Inject(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;runGameLoop()V"))
