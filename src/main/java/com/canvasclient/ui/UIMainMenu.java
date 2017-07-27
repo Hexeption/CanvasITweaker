@@ -112,7 +112,7 @@ public class UIMainMenu extends UI {
 		GuiHelper.drawStringFromTTF(FontHandler.STANDARD.get(40), (Display.getWidth() /  2) - (FontHandler.ROUNDED_BOLD.get(14).getWidth(" -  Forums  - ") /  2) + 1, Display.getHeight() - 30 - FontHandler.ROUNDED_BOLD.get(14).getHeight() - 12, "\u00B7", Utilities.reAlpha(ColorHelper.WHITE.getColorCode(), 1f * opacity));
 		GuiHelper.drawStringFromTTF(FontHandler.STANDARD.get(40), (Display.getWidth() /  2) + (FontHandler.ROUNDED_BOLD.get(14).getWidth("Forums  - ") /  2) - 3, Display.getHeight() - 30 - FontHandler.ROUNDED_BOLD.get(14).getHeight() - 12, "\u00B7", Utilities.reAlpha(ColorHelper.WHITE.getColorCode(), 1f * opacity));
 		
-		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20 - FontHandler.ROUNDED_BOLD.get(12).getHeight(), "Copyright 2017 Team Canvas - All rights reserved!", Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
+		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20 - FontHandler.ROUNDED_BOLD.get(12).getHeight(), "Copyright 2017 Team Canvas. All rights reserved!", Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
 		GuiHelper.drawStringFromTTF(FontHandler.ROUNDED_BOLD.get(12), Display.getWidth() - 20, Display.getHeight() - 20, "Copyright Mojang AB. Do not distribute!", Utilities.reAlpha(Canvas.getCanvas().getColorSchemeHandler().getCurrentForeground(), 1f * opacity), Align.RIGHT, Align.BOTTOM);
 		
 		String name = Canvas.getCanvas().getUserControl().canvasName;
