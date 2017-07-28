@@ -2,13 +2,14 @@ package com.canvasclient.ui;
 
 import com.canvasclient.ui.interactable.Interactable;
 import com.canvasclient.ui.interactable.TextBox;
+import com.canvasclient.utilities.IMinecraft;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public abstract class InteractableParent {
+public abstract class InteractableParent implements IMinecraft{
 
 	public List<Interactable> interactables = new CopyOnWriteArrayList<Interactable>();
 	public boolean hover;
@@ -50,32 +51,38 @@ public abstract class InteractableParent {
 		for(Interactable i : interactables) {
 			if (i.shown && i.enabled) { i.keyboardPress(key); }
 		}
-		if (key == Keyboard.KEY_TAB) {
-			List<TextBox> tb = new ArrayList<TextBox>();
-			for(int i = 0; i < interactables.size(); i++) {
-				Interactable in = interactables.get(i);
-				if (in instanceof TextBox) {
-					tb.add((TextBox)in);
+
+		switch (key){
+			case Keyboard.KEY_F11:
+				mc.toggleFullscreen();
+				break;
+			case Keyboard.KEY_TAB:
+				List<TextBox> tb = new ArrayList<TextBox>();
+				for(int i = 0; i < interactables.size(); i++) {
+					Interactable in = interactables.get(i);
+					if (in instanceof TextBox) {
+						tb.add((TextBox)in);
+					}
 				}
-			}
-			
-			int active = -1;
-			for(int i = 0; i < tb.size(); i++) {
-				TextBox t = tb.get(i);
-				if (t.active) {
-					active = i;
-					break;
+
+				int active = -1;
+				for(int i = 0; i < tb.size(); i++) {
+					TextBox t = tb.get(i);
+					if (t.active) {
+						active = i;
+						break;
+					}
 				}
-			}
-			
-			if (active != -1) {
-				tb.get(active%tb.size()).active = false;
-				if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
-					tb.get((active+tb.size()-1)%tb.size()).active = true;
-				} else {
-					tb.get((active+tb.size()+1)%tb.size()).active = true;
+
+				if (active != -1) {
+					tb.get(active%tb.size()).active = false;
+					if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
+						tb.get((active+tb.size()-1)%tb.size()).active = true;
+					} else {
+						tb.get((active+tb.size()+1)%tb.size()).active = true;
+					}
 				}
-			}
+				break;
 		}
 	}
 	
