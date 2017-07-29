@@ -19,7 +19,6 @@ import com.canvasclient.users.UserControl;
 import com.canvasclient.utilities.Authenticator;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
 
 public class Canvas {
 
