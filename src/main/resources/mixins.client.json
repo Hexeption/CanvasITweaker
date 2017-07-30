@@ -13,6 +13,7 @@
     "MixinGuiNewChat",
     "MixinGuiScreen",
     "MixinGuiWorldSelection",
-    "MixinMinecraft"
+    "MixinMinecraft",
+    "MixinModelPlayer"
   ]
 }
