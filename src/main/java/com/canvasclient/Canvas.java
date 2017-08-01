@@ -1,5 +1,6 @@
 package com.canvasclient;
 
+import com.canvasclient.addons.AddonManager;
 import com.canvasclient.addons.AddonRenderer;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.event.EventManager;
@@ -86,6 +87,7 @@ public class Canvas {
 				IOHelper.saveConfigurationFiles();
 
 				Authenticator.instance().username("email").password("password").login();
+				AddonManager.loadUsers();
 			}
 			
 		});
