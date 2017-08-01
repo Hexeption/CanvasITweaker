@@ -7,7 +7,7 @@ public interface IMixinGuiConnecting {
 
     NetworkManager getNetworkManager();
 
-    GuiScreen getpreviousGuiScreen();
+    GuiScreen getPreviousGuiScreen();
 
     String getIP();
 

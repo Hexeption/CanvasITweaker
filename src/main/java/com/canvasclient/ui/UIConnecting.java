@@ -39,7 +39,7 @@ public class UIConnecting extends UI {
 				});
             }
 
-            mc.displayGuiScreen(((IMixinGuiConnecting)mc.currentScreen).getpreviousGuiScreen());
+            mc.displayGuiScreen(((IMixinGuiConnecting)mc.currentScreen).getPreviousGuiScreen());
 			break;
 		}
 	}
