@@ -4,13 +4,13 @@ import com.canvasclient.addons.AddonManager;
 import com.canvasclient.addons.AddonRenderer;
 import com.canvasclient.api.APIHelper;
 import com.canvasclient.event.EventManager;
-import com.canvasclient.event.base.Event;
 import com.canvasclient.event.base.Listener;
 import com.canvasclient.event.boot.EventShutdown;
 import com.canvasclient.event.boot.EventStartup;
 import com.canvasclient.event.input.EventKeyPressed;
 import com.canvasclient.event.ui.EventTick;
 import com.canvasclient.friend.party.PartyManager;
+import com.canvasclient.mod.Mod;
 import com.canvasclient.mod.ModManager;
 import com.canvasclient.music.MusicHandler;
 import com.canvasclient.notification.NotificationManager;
@@ -125,6 +125,11 @@ public class Canvas {
             @Override
             public void call(EventKeyPressed event) {
 
+                for (Mod mod : modManager.getMods()) {
+                    if (event.key == mod.getBind()) {
+                        mod.toggle();
+                    }
+                }
             }
         });
     }
